@@ -1,0 +1,1443 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YurichHub — Sevastopol AI × City Code × Crimea RWA</title>
+<meta name="description" content="YurichHub — три двери в Севастополь: Sevastopol AI — бот по городу, City Code — закрытый круг, Crimea RWA — доля городской кассы в ЦФА.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:url" content="https://yurich-citycode.github.io/YuRichHUB/">
+<meta property="og:title" content="YurichHub — Sevastopol AI × City Code × Crimea RWA">
+<meta property="og:description" content="YurichHub — три двери в Севастополь: Sevastopol AI — бот по городу, City Code — закрытый круг, Crimea RWA — доля городской кассы в ЦФА.">
+<meta property="og:image" content="https://yurich-citycode.github.io/YuRichHUB/indexpreview.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="YurichHub — Sevastopol AI × City Code × Crimea RWA">
+<meta name="twitter:description" content="YurichHub — три двери в Севастополь: Sevastopol AI — бот по городу, City Code — закрытый круг, Crimea RWA — доля городской кассы в ЦФА.">
+<meta name="twitter:image" content="https://yurich-citycode.github.io/YuRichHUB/indexpreview.jpg">
+<link rel="canonical" href="https://yurich-citycode.github.io/YuRichHUB/">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230A0A0A'/%3E%3Ctext x='16' y='23' font-family='Arial,sans-serif' font-size='20' font-weight='bold' text-anchor='middle' fill='%23D7FF3D'%3EY%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+<style>
+  
+  :root{
+    --bg:#0A0A0A;
+    --ink:#F3F1EA;
+    --ink-dim:#8C8C8C;
+    --lime:#D7FF3D;
+    --gold:#C8A24A;
+    --pink:#E8377E;
+    --bronze:#C98A4E;
+    --line:rgba(243,241,234,.14);
+    --font-display:'Anton', sans-serif;
+    --font-sans:'Archivo', sans-serif;
+  }
+
+  *{ box-sizing:border-box; }
+  html,body{ margin:0; }
+  html{ scroll-behavior:auto; }
+
+  html{ opacity:0; transition:opacity .38s ease; }
+  html.page-ready{ opacity:1; }
+  html.page-leaving{ opacity:0; pointer-events:none; }
+
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:var(--font-sans);
+    -webkit-font-smoothing:antialiased;
+    position:relative;
+    overflow-x:hidden;
+  }
+  body::before{
+    content:''; position:fixed; inset:0; z-index:0; pointer-events:none;
+    opacity:.4; mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/></svg>");
+    background-size:180px 180px;
+  }
+
+  ::selection{ background:var(--lime); color:#0A0A0A; }
+  img{ max-width:100%; }
+  a{ color:inherit; }
+  a, button{ touch-action:manipulation; -webkit-tap-highlight-color:transparent; }
+
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--lime); outline-offset:3px;
+  }
+
+  .wrap{ max-width:1240px; margin:0 auto; padding:0 56px; position:relative; z-index:1; }
+
+  #scroll-spacer{ display:none; width:100%; pointer-events:none; }
+  
+  html.smooth-scroll #scroll-content{ position:fixed; top:0; left:0; width:100%; will-change:transform; }
+  html.smooth-scroll #scroll-spacer{ display:block; }
+
+  header{ position:relative; z-index:5; padding:28px 0 0; }
+  .nav{ display:flex; align-items:center; justify-content:space-between; gap:16px; }
+  .brand{ font-family:var(--font-display); font-size:19px; letter-spacing:.01em; text-transform:uppercase; }
+  .brand span{ color:var(--lime); }
+  .navlinks{ display:flex; gap:34px; font-size:12px; font-weight:600; letter-spacing:.04em; text-transform:uppercase; }
+  .navlinks a{
+    text-decoration:none; color:var(--ink); opacity:.7;
+    padding-bottom:3px; border-bottom:1px solid transparent;
+    transition:opacity .2s, border-color .2s, color .2s;
+  }
+  .navlinks a:hover{ opacity:1; border-color:var(--lime); color:var(--lime); }
+
+  .hero{
+    position:relative; min-height:100svh; display:flex; align-items:center;
+    overflow:hidden; background-color:var(--bg); isolation:isolate;
+  }
+  .hero-bg{
+    position:absolute; top:-8%; left:0; right:0; height:118%; z-index:0;
+    will-change:transform;
+    background:radial-gradient(120% 140% at 15% 10%, #12100f 0%, #0A0A0A 55%);
+  }
+  .hero-portrait{
+    position:absolute; right:0; top:50%; transform:translateY(-50%);
+    width:min(52vw,640px); aspect-ratio:1/1; z-index:0;
+  }
+  .hero-portrait .p-base{ width:100%; height:100%; display:block; object-fit:cover; }
+  .hero-scrim{
+    position:absolute; inset:0; z-index:1;
+    background:linear-gradient(100deg, rgba(10,10,10,.97) 0%, rgba(10,10,10,.88) 34%, rgba(10,10,10,.35) 64%, rgba(10,10,10,.08) 100%);
+  }
+  .hero-inner{ position:relative; z-index:2; padding:90px 0 110px; width:100%; }
+
+  .kicker{
+    font-size:12px; font-weight:700; letter-spacing:.16em; color:var(--ink-dim); text-transform:uppercase;
+    display:inline-flex; align-items:center; gap:10px; margin-bottom:26px;
+    border:1px solid var(--line); padding:6px 14px 6px 10px;
+    opacity:0; animation:riseRotate .8s ease .05s forwards;
+  }
+  .kicker .sq{ width:8px; height:8px; background:var(--lime); flex:none; }
+  @keyframes riseRotate{ from{ opacity:0; transform:translateY(10px) rotate(-2deg); } to{ opacity:1; transform:translateY(0) rotate(-2deg); } }
+
+  .poster{ margin:0 0 30px; }
+  .poster .row{ display:block; overflow:hidden; }
+  .poster .word{
+    display:block; font-family:var(--font-display); text-transform:uppercase;
+    font-size:clamp(52px,10vw,118px); line-height:.92; letter-spacing:.005em;
+    opacity:0; transform:translateY(100%); animation:slideup .7s cubic-bezier(.2,.8,.2,1) forwards;
+  }
+  .poster .word.gold{ color:var(--gold); animation-delay:.15s; }
+  .poster .word.lime{ color:var(--lime); animation-delay:.28s; }
+  .poster .word.glitchw{ position:relative; color:var(--ink); animation-delay:.41s; }
+  .poster .word.glitchw::before,
+  .poster .word.glitchw::after{
+    content:attr(data-text); position:absolute; left:0; top:0; width:100%; mix-blend-mode:screen;
+  }
+  .poster .word.glitchw::before{ color:var(--pink); transform:translate(5px,4px); opacity:.75; }
+  .poster .word.glitchw::after{ color:var(--lime); transform:translate(-5px,-3px); opacity:.5; }
+  @keyframes slideup{ to{ opacity:1; transform:translateY(0); } }
+  @keyframes rise{ from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);} }
+
+  .hero .sub{
+    font-size:16px; line-height:1.7; color:#C4C4C4; max-width:48ch; margin:0 0 38px;
+    opacity:0; animation:rise .8s ease .6s forwards;
+  }
+  .hero .doors{ max-width:54ch; display:flex; flex-direction:column; gap:10px; margin:0 0 30px; }
+  .hero .door{
+    margin:0; padding-left:14px; border-left:2px solid var(--line);
+    font-size:15.5px; line-height:1.55;
+  }
+  .chaos-tag{
+    display:inline-block; font-weight:700; margin:0 .08em;
+    transition:transform .2s ease;
+  }
+
+  .cta-row{ display:flex; gap:14px; flex-wrap:wrap; opacity:0; animation:rise .8s ease .72s forwards; }
+
+  .cta-note{
+    margin:18px 0 0; font-size:12.5px; line-height:1.5; color:var(--ink-dim);
+    opacity:0; animation:rise .8s ease .86s forwards;
+  }
+
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    padding:15px 26px; font-size:13px; letter-spacing:.03em;
+    text-decoration:none; border:2px solid var(--lime); color:#0A0A0A; background:var(--lime);
+    font-weight:800; text-transform:uppercase; white-space:nowrap;
+    transition:transform .18s cubic-bezier(.2,.8,.2,1), box-shadow .18s ease,
+               background-color .18s ease, border-color .18s ease, color .18s ease;
+  }
+  .btn:hover{ transform:translate(-2px,-2px); box-shadow:4px 4px 0 var(--pink); }
+  .btn:active{ transform:translate(1px,1px); box-shadow:none; }
+  .btn.ghost{ background:transparent; color:var(--ink); border-color:var(--line); }
+  .btn.ghost:hover{ border-color:var(--ink); box-shadow:4px 4px 0 var(--lime); color:var(--ink); }
+
+  .tilt-l{ display:inline-block; transform:rotate(-2.5deg); }
+  .tilt-r{ display:inline-block; transform:rotate(1.8deg); }
+
+  .corner-coord{ position:absolute; z-index:2; font-size:11px; color:var(--ink-dim); font-variant-numeric:tabular-nums; letter-spacing:.03em; }
+  .corner-coord.bl{ left:56px; bottom:26px; }
+  .corner-coord.br{ right:56px; bottom:26px; text-align:right; }
+
+  .stamp{ position:absolute; z-index:3; top:120px; right:66px; width:104px; height:104px; animation:spin 22s linear infinite; }
+  .stamp text{ font-family:var(--font-sans); font-weight:700; font-size:7.6px; letter-spacing:.08em; fill:var(--ink-dim); text-transform:uppercase; }
+  @keyframes spin{ to{ transform:rotate(360deg); } }
+
+  .spotlight{
+    position:absolute; inset:0; z-index:1; pointer-events:none;
+    background:radial-gradient(360px circle at var(--mx,50%) var(--my,50%), rgba(215,255,61,.10), transparent 60%);
+  }
+
+
+  .marquee{
+    overflow:hidden; border-top:2px solid var(--line); border-bottom:2px solid var(--line);
+    padding:18px 0; position:relative; z-index:1; background:var(--bg);
+  }
+  .marquee-track{ display:flex; width:max-content; animation:marquee 26s linear infinite; }
+  .marquee-track .item{
+    display:flex; align-items:center; flex:none; gap:44px;
+    font-family:var(--font-display); text-transform:uppercase; font-size:22px;
+    white-space:nowrap; margin-right:44px;
+  }
+  .marquee-track .item .m-lime{ color:var(--lime); }
+  .marquee-track .item .m-pink{ color:var(--pink); }
+  .marquee-track .item .sep{ color:var(--ink-dim); font-size:14px; }
+  @keyframes marquee{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+
+  section.chapter{
+    position:relative; padding:120px 0; border-top:2px solid var(--line);
+    background-color:var(--bg); isolation:isolate;
+  }
+  #sevastopol{
+    background:radial-gradient(circle at 85% 40%, rgba(200,162,74,.08) 0%, rgba(10,10,10,.98) 70%);
+  }
+  #citycode{
+    background:radial-gradient(circle at 80% 50%, rgba(215,255,61,.08) 0%, rgba(10,10,10,.98) 70%);
+  }
+
+  .chapter .eyebrow{
+    display:inline-flex; align-items:center; gap:10px; font-size:12px; font-weight:700; letter-spacing:.14em;
+    text-transform:uppercase; margin-bottom:20px; border:1px solid var(--line);
+    padding:5px 12px 5px 8px; transform:rotate(-1.6deg);
+  }
+  .chapter h2{
+    font-family:var(--font-display); text-transform:uppercase;
+    font-size:clamp(34px,4.6vw,54px); line-height:1; margin:0 0 26px; max-width:12ch;
+  }
+  .chapter .copy{ font-size:15.5px; line-height:1.75; color:#C4C4C4; max-width:44ch; }
+  .chapter .copy + .copy{ margin-top:16px; }
+
+  .grid-2{ display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+
+  .wipe{
+    position:absolute; inset:0; z-index:6; transform-origin:left center;
+    pointer-events:none; transform:scaleX(0);
+    transition:transform 1s cubic-bezier(.65,0,.15,1);
+  }
+  html.curtains .wipe{ transform:scaleX(1); }
+  html.curtains .wipe.wiped{ transform:scaleX(0); }
+
+  .bg-num{
+    position:absolute; z-index:0; top:-.15em; right:-.03em; font-family:var(--font-display);
+    font-size:clamp(240px,32vw,460px); line-height:1; color:transparent;
+    -webkit-text-stroke:1px rgba(243,241,234,.07);
+    pointer-events:none; user-select:none;
+  }
+
+  .routecard{ position:relative; max-width:520px; margin-left:auto; }
+  .routecard img{
+    display:block; width:100%; height:auto; border-radius:20px;
+    border:1px solid rgba(255,255,255,.1);
+    box-shadow:0 20px 50px rgba(0,0,0,.9), 0 0 30px rgba(200,162,74,.22);
+  }
+
+  .cc-section{ background:radial-gradient(ellipse 1000px 560px at 76% 30%, rgba(215,255,61,.09), transparent 62%); }
+  .cc-grid{ grid-template-columns:1.45fr 1fr; gap:40px; }
+
+  .keychain-stage{
+    position:relative; display:flex; flex-direction:column; align-items:center;
+    perspective:900px; transform:rotate(-1.4deg) translateY(-10px);
+  }
+  .kc-photo-wrap{
+    position:relative; z-index:1; width:100%; max-width:1100px;
+    transform-origin:50% 8%; animation:idle-sway 7s ease-in-out infinite;
+    --active-color:rgba(215,255,61,.4);
+  }
+  @keyframes idle-sway{ 0%,100%{ transform:rotate(-1.6deg);} 50%{ transform:rotate(1.6deg);} }
+  .kc-photo{
+    display:block; width:100%; height:auto;
+    filter:drop-shadow(0 20px 40px rgba(0,0,0,.6));
+    transition:transform .35s ease, filter .35s ease;
+  }
+  .kc-photo-wrap:hover .kc-photo,
+  .kc-photo-wrap.is-active .kc-photo{
+    transform:scale(1.02);
+    filter:drop-shadow(0 0 30px var(--active-color)) drop-shadow(0 20px 40px rgba(0,0,0,.6));
+  }
+  .kc-tilt{ transition:transform .35s ease; transform-style:preserve-3d; }
+
+  .kc-hotspots{ position:absolute; inset:0; z-index:3; }
+  .kc-hot{
+    position:absolute; inset:0; width:100%; height:100%; padding:0;
+    background:transparent; border:0; outline:0; box-shadow:none;
+    -webkit-tap-highlight-color:transparent; cursor:pointer;
+    filter:drop-shadow(0 0 0 transparent);
+    transition:filter .2s ease;
+  }
+  .kc-hot:hover{ filter:drop-shadow(0 0 7px var(--hc,#D7FF3D)); }
+  .kc-hot.is-active{ filter:drop-shadow(0 0 9px var(--hc,#D7FF3D)); animation:hotPulse 1.7s ease-in-out infinite; }
+  .kc-hot:focus-visible{ outline:none; filter:drop-shadow(0 0 6px #FFFFFF) drop-shadow(0 0 2px #FFFFFF); }
+  @keyframes hotPulse{ 0%,100%{ opacity:1; } 50%{ opacity:.55; } }
+
+  .hs-hex{ z-index:1; clip-path:polygon(36.5% 48.5%, 40.5% 54%, 33.5% 79%, 23.5% 85%, 15.3% 74.5%, 17.2% 60.5%, 19.5% 54.5%); }
+  .hs-oval{ z-index:5; clip-path:polygon(45.4% 75.4%, 46.6% 69.1%, 46.8% 63.3%, 46% 58.4%, 44.3% 54.9%, 41.8% 53.2%, 38.8% 53.4%, 35.6% 55.6%, 32.4% 59.4%, 29.7% 64.6%, 27.6% 70.6%, 26.4% 76.9%, 26.2% 82.7%, 27% 87.6%, 28.7% 91.1%, 31.2% 92.8%, 34.2% 92.6%, 37.4% 90.4%, 40.6% 86.6%, 43.3% 81.4%); }
+  .hs-blade{ z-index:6; clip-path:polygon(44% 52%, 50.8% 52%, 51.8% 57%, 50.6% 90%, 48.8% 96%, 47.2% 98.5%, 45.5% 96%, 43.8% 90%, 42.8% 57%); }
+  .hs-angle{ z-index:4; clip-path:polygon(52.5% 55%, 55% 51.5%, 59.5% 52%, 63% 55%, 64.8% 62%, 64% 76.5%, 57% 84%, 53.5% 81%, 51.5% 75.5%, 51% 62%); }
+  .hs-bar{ z-index:3; clip-path:polygon(60.2% 47.5%, 64.5% 43.8%, 79.2% 84.2%, 72.6% 91.8%, 66.8% 85.2%); }
+  .hs-circle{ z-index:2; clip-path:polygon(84.1% 61.5%, 83.5% 65.1%, 81.6% 68.3%, 78.8% 70.7%, 75.3% 71.9%, 71.7% 71.9%, 68.2% 70.7%, 65.4% 68.3%, 63.5% 65.1%, 62.9% 61.5%, 63.5% 57.9%, 65.4% 54.7%, 68.2% 52.3%, 71.7% 51.1%, 75.3% 51.1%, 78.8% 52.3%, 81.6% 54.7%, 83.5% 57.9%); }
+
+  .kc-spark{
+    position:absolute; z-index:100; width:6px; height:6px; border-radius:50%;
+    pointer-events:none; will-change:transform, opacity;
+    background:radial-gradient(circle, #fff 0%, var(--sc,#D7FF3D) 60%, transparent 100%);
+    box-shadow:0 0 8px var(--sc,#D7FF3D);
+    animation:sparkFly .65s cubic-bezier(.2,.8,.2,1) forwards;
+  }
+  @keyframes sparkFly{
+    0%{ transform:translate(0,0) scale(1); opacity:1; }
+    100%{ transform:translate(var(--dx),var(--dy)) scale(0); opacity:0; }
+  }
+  .kc-hint{
+    text-align:center; font-size:11px; font-weight:700; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--ink-dim); margin-top:14px;
+  }
+
+  .kc-panel{
+    display:flex; gap:16px; align-items:flex-start; margin-top:24px; padding:18px 20px;
+    border:1px solid var(--line); background:rgba(255,255,255,.02); max-width:440px;
+  }
+  .kc-panel-num{ font-family:var(--font-display); font-size:30px; color:var(--lime); line-height:1; flex:none; }
+  .kc-panel-title{ font-family:var(--font-display); font-size:18px; text-transform:uppercase; margin-bottom:6px; }
+  .kc-panel-desc{ font-size:13px; line-height:1.6; color:#C4C4C4; }
+  @keyframes panelPulse{ 0%{ border-color:var(--lime); } 100%{ border-color:var(--line); } }
+
+  .cc-list{ display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
+  .cc-chip{
+    font-family:var(--font-sans); font-size:11px; font-weight:700; letter-spacing:.05em; text-transform:uppercase;
+    color:var(--ink-dim); border:1px solid var(--line); padding:7px 12px;
+    background:transparent; cursor:pointer;
+    transition:color .2s ease, border-color .2s ease, background-color .2s ease, transform .15s ease;
+  }
+  .cc-chip:nth-child(odd){ transform:rotate(-2deg); }
+  .cc-chip:nth-child(even){ transform:rotate(1.5deg); }
+  .cc-chip:hover{ color:var(--ink); border-color:var(--lime); }
+  .cc-chip:active{ transform:scale(.96) rotate(0deg); }
+  .cc-chip.active{ color:#0A0A0A; background:var(--lime); border-color:var(--lime); }
+
+  .partners{ display:flex; gap:36px; align-items:flex-start; flex-wrap:wrap; margin-top:48px; }
+  .partner{ display:flex; flex-direction:column; gap:10px; max-width:200px; text-decoration:none; }
+  .partner img{
+    width:110px; height:110px; object-fit:cover; object-position:center;
+    display:block; border:0; border-radius:50%; background:transparent;
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .partner:hover img{ transform:translateY(-3px) scale(1.04); box-shadow:0 10px 26px rgba(0,0,0,.5); }
+  .partner img.hermes{ width:168px; height:168px; object-position:center 12%; }
+  
+  .partner img.nebank{ width:auto; height:168px; border-radius:0; object-fit:contain; }
+  .partner small{ color:var(--ink-dim); font-size:11px; letter-spacing:.08em; text-transform:uppercase; line-height:1.4; }
+
+  .rwa-section{ text-align:center; }
+  .rwa-section .wrap{ display:flex; flex-direction:column; align-items:center; }
+  .rwa-section h2, .rwa-section .copy{ margin-left:auto; margin-right:auto; }
+  .rwa-section .copy{ text-align:center; }
+  .soon{
+    margin-top:30px; font-size:11.5px; font-weight:800; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--bronze); border:1px solid rgba(201,138,78,.45); padding:10px 18px; display:inline-block;
+    transform:rotate(-2deg);
+  }
+
+  .rwa-how{
+    display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr); gap:64px; align-items:center;
+    margin-top:64px; text-align:left; width:100%;
+  }
+  .rwa-tabs{ display:flex; gap:10px; flex-wrap:wrap; margin-bottom:30px; }
+  .rwa-tab{
+    font-family:var(--font-sans); font-size:11.5px; font-weight:800; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--ink-dim); background:transparent; border:1px solid var(--line); padding:10px 16px; cursor:pointer;
+    transition:color .2s ease, border-color .2s ease, background-color .2s ease, transform .15s ease;
+  }
+  .rwa-tab:nth-child(1){ transform:rotate(-1.6deg); }
+  .rwa-tab:nth-child(2){ transform:rotate(1.2deg); }
+  .rwa-tab:nth-child(3){ transform:rotate(-0.8deg); }
+  .rwa-tab:hover{ color:var(--ink); border-color:var(--bronze); }
+  .rwa-tab.active{ color:#0A0A0A; background:var(--bronze); border-color:var(--bronze); transform:rotate(0deg); }
+
+  .rwa-step{
+    border:1px solid var(--line); background:rgba(255,255,255,.02);
+    padding:28px 30px 26px; max-width:560px;
+  }
+  .rwa-step .rs-letter{ font-family:var(--font-display); font-size:64px; line-height:.9; color:var(--bronze); }
+  .rwa-step h3{ font-family:var(--font-display); font-size:20px; text-transform:uppercase; margin:10px 0 10px; }
+  .rwa-step p{ margin:0; font-size:14px; line-height:1.65; color:#C4C4C4; }
+  @keyframes stepPulse{ 0%{ border-color:var(--bronze); } 100%{ border-color:var(--line); } }
+
+  .rwa-visual{ position:relative; }
+  .rwa-screen{ display:none; }
+  .rwa-screen.is-active{ display:block; animation:screenIn .45s cubic-bezier(.2,.8,.2,1); }
+  @keyframes screenIn{ from{ opacity:0; transform:translateY(12px); } to{ opacity:1; transform:none; } }
+
+  .asset-shot{ position:relative; margin:0; border:1px solid var(--line); background:#0c0b09; }
+  .asset-shot img{
+    display:block; width:100%; height:352px; object-fit:cover; object-position:center 42%;
+    filter:saturate(.94) contrast(1.05) brightness(.96);
+  }
+  .asset-shot::after{
+    content:''; position:absolute; inset:0; pointer-events:none;
+    background:linear-gradient(180deg, rgba(10,10,10,.05) 45%, rgba(10,10,10,.66) 100%);
+  }
+  .asset-flag{
+    position:absolute; top:12px; right:12px; z-index:1;
+    font-size:8.5px; font-weight:800; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--bronze); border:1px solid rgba(201,138,78,.55); background:rgba(10,10,10,.72);
+    padding:4px 9px;
+  }
+  .asset-plate{ border:1px solid var(--line); border-top:0; background:rgba(255,255,255,.02); padding:16px 18px 12px; }
+  .asset-plate .ap-head{
+    font-size:9.5px; font-weight:800; letter-spacing:.24em; text-transform:uppercase;
+    color:var(--bronze); margin-bottom:6px;
+  }
+  .ap-row{ display:flex; justify-content:space-between; gap:14px; padding:8px 0; border-top:1px solid var(--line); font-size:12px; line-height:1.5; }
+  .ap-row b{ flex:0 0 78px; font-size:10px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-dim); padding-top:2px; }
+  .ap-row span{ color:var(--ink); text-align:right; }
+
+  .doc-sheet{
+    max-width:440px; margin:0 auto; position:relative;
+    background:linear-gradient(180deg, #12100d 0%, #0d0c0a 100%);
+    border:1px solid rgba(201,138,78,.38);
+    box-shadow:0 26px 60px rgba(0,0,0,.55);
+    padding:26px 28px 22px;
+  }
+  .doc-sheet::before{
+    content:''; position:absolute; top:0; bottom:0; left:14px; width:1px;
+    background:linear-gradient(180deg, transparent, rgba(201,138,78,.4) 12%, rgba(201,138,78,.4) 88%, transparent);
+  }
+  .doc-head{ border-bottom:1px solid rgba(201,138,78,.3); padding-bottom:16px; margin-bottom:4px; }
+  .doc-kicker{
+    display:inline-block; font-size:8.5px; font-weight:800; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--bronze); border:1px solid rgba(201,138,78,.5); padding:4px 9px; margin-bottom:12px;
+  }
+  .doc-title{ font-family:var(--font-display); font-size:24px; line-height:1.05; text-transform:uppercase; margin:0 0 6px; color:var(--ink); }
+  .doc-sub{ font-size:11px; letter-spacing:.08em; color:var(--ink-dim); }
+  .doc-fields{ margin:0; }
+  .doc-fields .df{ display:flex; justify-content:space-between; gap:16px; padding:9px 0; border-bottom:1px dashed rgba(243,241,234,.12); font-size:12px; line-height:1.5; }
+  .doc-fields dt{ flex:0 0 116px; color:var(--ink-dim); font-size:10px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; padding-top:2px; }
+  .doc-fields dd{ margin:0; color:var(--ink); text-align:right; }
+  .doc-fields dd.doc-status{ color:var(--bronze); font-weight:700; }
+  .doc-pdf{
+    display:inline-flex; align-items:center; gap:8px; margin-top:18px; padding-bottom:3px;
+    border:0; border-bottom:1px solid rgba(201,138,78,.5); background:none; cursor:pointer;
+    font-family:var(--font-sans); font-size:12px; font-weight:800; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--bronze); text-decoration:none;
+    transition:border-color .2s ease, color .2s ease;
+  }
+  .doc-pdf:hover{ color:var(--ink); border-color:var(--ink); }
+
+  .broker-stage{ position:relative; width:100%; max-width:390px; margin:0 auto; }
+  .broker{
+    position:absolute; top:0; left:0; width:390px; height:844px; transform-origin:top left;
+    background:#f2f0ec; color:#17171a; border:1px solid rgba(10,10,10,.5); border-radius:34px;
+    overflow:hidden; box-shadow:0 30px 70px rgba(0,0,0,.6);
+  }
+  .bk-status{ display:flex; justify-content:space-between; align-items:center; padding:16px 26px 6px; font-size:13px; font-weight:700; }
+  .bk-status-ico{ display:inline-flex; align-items:flex-end; gap:3px; }
+  .bk-status-ico i{ display:block; width:3px; background:#17171a; border-radius:1px; }
+  .bk-status-ico i:nth-child(1){ height:5px; }
+  .bk-status-ico i:nth-child(2){ height:8px; }
+  .bk-status-ico i:nth-child(3){ height:11px; }
+  .bk-status-ico i:nth-child(4){ width:16px; height:8px; margin-left:4px; border:1.5px solid #17171a; border-radius:2px; background:linear-gradient(90deg,#17171a 70%, transparent 70%); }
+  .bk-bar{ display:flex; align-items:center; justify-content:space-between; padding:8px 22px 10px; font-size:15px; font-weight:700; }
+  .bk-bar .bk-edge{ color:#8a8a90; font-size:18px; line-height:1; }
+  .bk-card{ margin:6px 14px 0; background:#fff; border-radius:22px; padding:18px 18px 14px; box-shadow:0 10px 26px rgba(23,23,26,.08); }
+  .bk-head{ display:flex; gap:12px; align-items:flex-start; }
+  .bk-ico{
+    flex:0 0 44px; width:44px; height:44px; border-radius:12px;
+    display:flex; align-items:center; justify-content:center;
+    background:rgba(201,138,78,.14); color:#a06a33;
+  }
+  .bk-names{ flex:1 1 auto; min-width:0; }
+  .bk-names b{ display:block; font-size:16px; line-height:1.25; font-weight:800; }
+  .bk-names span{ display:block; margin-top:3px; font-size:12.5px; color:#77777d; }
+  .bk-chip{
+    flex:0 0 auto; padding:5px 10px; border-radius:999px; white-space:nowrap;
+    font-size:11px; font-weight:800; letter-spacing:.04em; color:#1d7a3d; background:rgba(29,122,61,.1);
+  }
+  .bk-yield{ display:flex; align-items:baseline; gap:10px; margin:14px 0 2px; }
+  .bk-y-pre{ font-size:12.5px; font-weight:700; color:#77777d; }
+  .bk-y-num{ font-size:34px; font-weight:800; letter-spacing:-.01em; }
+  .bk-y-lbl{ font-size:12.5px; color:#77777d; }
+  .bk-rows{ margin-top:12px; border-top:1px solid #ececea; }
+  .bk-row{ display:flex; justify-content:space-between; gap:12px; padding:10px 0; border-bottom:1px solid #ececea; font-size:13.5px; }
+  .bk-row span{ color:#77777d; }
+  .bk-row b{ font-weight:700; }
+  .bk-ois{
+    display:flex; align-items:center; gap:8px; margin-top:14px; padding:10px 12px;
+    background:#f6f4f0; border-radius:12px; font-size:12.5px; color:#55555b;
+  }
+  .bk-ois svg{ flex:0 0 16px; color:#a06a33; }
+  .bk-cta{
+    width:100%; margin-top:14px; padding:14px 16px; border:0; border-radius:14px; cursor:pointer;
+    background:#17171a; color:#fff; font-family:var(--font-sans); font-size:14px; font-weight:700;
+  }
+  .bk-note{ margin-top:8px; font-size:11px; line-height:1.45; color:#9a9aa0; text-align:center; }
+  .bk-card + .bk-card{ margin-top:12px; }
+  .bk-chart-head{ display:flex; justify-content:space-between; align-items:baseline; gap:10px; margin-bottom:10px; }
+  .bk-chart-head b{ font-size:13.5px; }
+  .bk-chart-head span{ font-size:11px; color:#77777d; white-space:nowrap; }
+  .bk-chart{ width:100%; height:64px; display:block; }
+  .bk-about{ font-size:12.5px; line-height:1.55; color:#55555b; }
+  .bk-tabbar{
+    position:absolute; left:0; right:0; bottom:0; padding:10px 22px 24px;
+    display:flex; justify-content:space-between; background:#fbfaf8; border-top:1px solid #ececea;
+  }
+  .bk-tabbar span{ font-size:10.5px; font-weight:700; letter-spacing:.02em; color:#9a9aa0; }
+  .bk-tabbar span.on{ color:#17171a; }
+
+  .rwa-legal{
+    margin:26px auto 0; max-width:520px; text-align:center;
+    font-size:10.5px; line-height:1.6; letter-spacing:.04em; color:var(--ink-dim);
+  }
+
+  .mod-counter{ display:flex; align-items:baseline; gap:16px; margin:40px 0 18px; }
+  .mod-counter .mc-num{ font-family:var(--font-display); font-size:clamp(52px,7vw,84px); line-height:1; color:transparent; -webkit-text-stroke:1.5px var(--pink); }
+  .mod-counter .mc-lbl{ font-size:12px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-dim); }
+  .mod-chips{ display:flex; flex-wrap:wrap; gap:10px; margin:0 0 16px; }
+  .mod-note{ font-size:13.5px; line-height:1.6; color:var(--ink-dim); max-width:46ch; margin:0 0 22px; }
+  .mod-note b{ color:var(--ink); }
+  .mod-fmt{ margin-bottom:4px; }
+
+  .steps{ display:grid; grid-template-columns:repeat(3,1fr); margin:46px 0 30px; border-top:2px solid var(--line); text-align:left; }
+  .step-cell{ padding:28px 28px 10px 0; border-right:1px solid var(--line); }
+  .step-cell:last-child{ border-right:0; }
+  .step-cell + .step-cell{ padding-left:28px; }
+  .step-cell .s-num{ font-family:var(--font-display); font-size:46px; line-height:1; color:transparent; -webkit-text-stroke:1.2px var(--ink-dim); }
+  .step-cell.s-price .s-num{ -webkit-text-stroke-color:var(--pink); }
+  .step-cell h3{ font-family:var(--font-display); font-size:18px; text-transform:uppercase; margin:12px 0 8px; }
+  .step-cell p{ margin:0; font-size:13px; line-height:1.6; color:#C4C4C4; }
+  .price-tag{
+    display:inline-block; margin-top:12px; font-size:11px; font-weight:800; letter-spacing:.06em;
+    color:var(--pink); border:1px solid rgba(232,55,126,.45); padding:6px 11px; transform:rotate(-2deg);
+  }
+  .nots{ display:flex; flex-wrap:wrap; gap:10px; margin-top:6px; }
+
+  .thesis{ padding:120px 0; text-align:center; border-top:2px solid var(--line); }
+  .thesis-scatter{ position:relative; max-width:1000px; margin:0 auto 40px; min-height:420px; }
+  .tf{ position:absolute; font-family:var(--font-display); text-transform:uppercase; line-height:1.05; white-space:nowrap; margin:0; }
+  .tf-big{ font-size:clamp(30px,4.6vw,54px); }
+  .tf-sm{ font-family:var(--font-sans); font-weight:700; text-transform:none; font-size:clamp(15px,1.7vw,20px); letter-spacing:.01em; white-space:normal; max-width:26ch; }
+  .tf-lime{ color:var(--lime); }
+  .tf-pink{ color:var(--pink); }
+  .tf-gold{ color:var(--gold); }
+  .tf-bronze{ color:var(--bronze); }
+  .tf-white{ color:var(--ink); }
+  .tf1{ top:2%;   left:3%;  transform:rotate(-3deg); }
+  .tf2{ top:12%;  left:38%; transform:rotate(1.5deg); }
+  .tf3{ top:34%;  left:8%;  transform:rotate(2deg); }
+  .tf4{ top:44%;  left:44%; transform:rotate(-1deg); }
+  .tf5{ top:66%;  left:4%;  transform:rotate(-2deg); }
+  .tf6{ top:76%;  left:40%; transform:rotate(1deg); }
+  .signature{ margin-top:26px; font-size:11.5px; font-weight:700; letter-spacing:.1em; color:var(--ink-dim); text-transform:uppercase; }
+
+  .wordwall{ overflow:hidden; border-top:2px solid var(--line); padding:40px 0 10px; position:relative; }
+  .wordwall .big{
+    font-family:var(--font-display); text-transform:uppercase; white-space:nowrap;
+    font-size:clamp(90px,16vw,220px); line-height:1; color:transparent; text-align:center; margin:0;
+    -webkit-text-stroke:1.5px rgba(215,255,61,.5); letter-spacing:0;
+  }
+
+  footer{ border-top:2px solid var(--line); padding:36px 0; position:relative; z-index:1; background:var(--bg); }
+  .foot-row{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
+  .foot-meta{ font-size:11px; font-weight:700; letter-spacing:.08em; color:var(--ink-dim); text-transform:uppercase; }
+  .foot-links{ display:flex; gap:22px; flex-wrap:wrap; }
+  .foot-links a{
+    font-size:12.5px; font-weight:700; text-decoration:none; color:var(--ink); opacity:.8;
+    text-transform:uppercase; letter-spacing:.03em; transition:opacity .2s, color .2s;
+  }
+  .foot-links a:hover{ opacity:1; color:var(--lime); }
+
+  .cur-dot, .cur-ring{
+    position:fixed; top:0; left:0; z-index:9999; pointer-events:none;
+    border-radius:50%; transform:translate(-50%,-50%);
+    will-change:transform; display:none;
+  }
+  html.has-cursor .cur-dot, html.has-cursor .cur-ring{ display:block; }
+  html.has-cursor body, html.has-cursor a, html.has-cursor button{ cursor:none; }
+  .cur-dot{ width:6px; height:6px; background:var(--lime); }
+  .cur-ring{
+    width:34px; height:34px; border:1px solid rgba(215,255,61,.6);
+    transition:width .2s ease, height .2s ease, border-color .2s ease, background .2s ease;
+  }
+  .cur-ring.hover{ width:64px; height:64px; background:rgba(215,255,61,.08); border-color:var(--lime); }
+  .cur-ring.hover-pink{ width:64px; height:64px; background:rgba(232,55,126,.1); border-color:var(--pink); }
+
+  .reveal{ opacity:0; transform:translateY(26px); transition:opacity .8s ease, transform .8s cubic-bezier(.2,.8,.2,1); }
+  .reveal.in-view{ opacity:1; transform:translateY(0); }
+  .reveal-2{ transition-delay:.12s; }
+
+  .rword{ display:inline-block; overflow:hidden; vertical-align:top; }
+  .rword-inner{ display:inline-block; transform:translateY(115%); transition:transform .7s cubic-bezier(.2,.8,.2,1); }
+  .split.revealed .rword-inner{ transform:translateY(0); }
+
+  @media (max-width:900px){
+    .grid-2{ grid-template-columns:1fr; gap:64px; }
+    .cc-grid{ grid-template-columns:1fr; }
+    section.chapter{ padding:84px 0; }
+    .routecard{ margin:0 auto; }
+    .rwa-how{ grid-template-columns:minmax(0,1fr); gap:56px; margin-top:56px; }
+    .steps{ grid-template-columns:1fr; border-top:0; }
+    .step-cell{ border-right:0; border-top:2px solid var(--line); padding:24px 0 14px; }
+    .step-cell + .step-cell{ padding-left:0; }
+
+    .hero{ flex-direction:column; align-items:stretch; min-height:auto; }
+    .hero-portrait{
+      position:relative; top:auto; right:auto; left:auto; transform:none;
+      width:min(76vw,380px); margin:24px auto 0;
+    }
+    .hero-scrim{
+      background:linear-gradient(180deg, rgba(10,10,10,.72) 0%, rgba(10,10,10,.5) 45%, rgba(10,10,10,.92) 100%);
+    }
+    .hero-inner{ padding:34px 0 72px; }
+    .stamp{ display:none; }
+  }
+  @media (max-width:860px){
+    .wrap{ padding:0 22px; }
+    .corner-coord.bl{ left:22px; }
+    .corner-coord.br{ right:22px; }
+  }
+  @media (max-width:760px){
+    .nav{ flex-wrap:wrap; gap:12px; }
+    .navlinks{ flex-wrap:wrap; gap:12px 16px; width:100%; }
+    .bg-num{ display:none; }
+    .thesis-scatter{ min-height:auto; }
+    .tf{ position:static !important; display:block; transform:none !important; white-space:normal; margin:0 0 12px; }
+    .asset-shot img{ height:250px; }
+    .ap-row{ flex-direction:column; gap:2px; }
+    .ap-row b{ flex:none; }
+    .ap-row span{ text-align:left; }
+    .doc-sheet{ padding:22px 20px 18px; }
+    .doc-fields .df{ flex-direction:column; gap:2px; }
+    .doc-fields dt{ flex:none; }
+    .doc-fields dd{ text-align:left; }
+  }
+  @media (max-width:700px){
+    .wordwall .big{ -webkit-text-stroke:1px rgba(215,255,61,.5); }
+  }
+  @media (max-width:600px){
+    .corner-coord.br{ display:none; }
+    .btn{ padding:13px 20px; font-size:12px; }
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    html{ opacity:1; transition:none; }
+    .reveal{ opacity:1; transform:none; transition:none; }
+    .rword-inner{ transform:none; transition:none; }
+    .wipe{ display:none; }
+    .stamp, .kc-photo-wrap, .kc-hot.is-active, .rwa-screen.is-active{ animation:none; }
+    .kicker, .poster .word, .hero .sub, .cta-row, .cta-note{
+      animation:none !important; opacity:1 !important; transform:none;
+    }
+    .marquee-track{ animation:none; transform:none; flex-wrap:wrap; justify-content:center; row-gap:10px; }
+    .marquee-track .item:last-child{ display:none; }
+    .cur-dot, .cur-ring{ display:none !important; }
+    .partner img, .btn, .rwa-tab, .cc-chip{ transition:none; }
+  }
+</style>
+</head>
+<body>
+<div class="cur-dot" id="curDot" aria-hidden="true"></div>
+<div class="cur-ring" id="curRing" aria-hidden="true"></div>
+
+<div id="scroll-content">
+<header class="wrap">
+  <div class="nav">
+    <div class="brand">Yurich<span>Hub</span></div>
+    <nav class="navlinks" aria-label="Основная навигация">
+      <a href="#sevastopol" class="magnetic">Sevastopol AI</a>
+      <a href="#citycode" class="magnetic">City Code</a>
+      <a href="#rwa" class="magnetic">Crimea RWA</a>
+      <a href="course.html" class="magnetic">Курс</a>
+      <a href="glossary.html" class="magnetic">Глоссарий</a>
+      <a href="cfa.html" class="magnetic">ЦФА</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-portrait">
+    <img class="p-base" src="yurichhub.jpg" fetchpriority="high" decoding="async" width="640" height="640" alt="YuRich Hub — портрет">
+  </div>
+  <div class="hero-scrim"></div>
+  <div class="spotlight" id="spotlight"></div>
+
+  <svg class="stamp" viewBox="0 0 104 104" aria-hidden="true">
+    <circle cx="52" cy="52" r="50" fill="none" stroke="#D7FF3D" stroke-width="1.4"/>
+    <circle cx="52" cy="52" r="40" fill="none" stroke="#8C8C8C" stroke-width="1"/>
+    <path id="stampCircle" d="M 52 12 A 40 40 0 1 1 51.9 12" fill="none"/>
+    <text><textPath href="#stampCircle" startOffset="0%">YURICHHUB · SEVASTOPOL · CITY CODE · CRIMEA RWA ·</textPath></text>
+  </svg>
+
+  <div class="wrap hero-inner">
+    <div class="kicker"><span class="sq"></span>Yurichhub</div>
+    <h1 class="poster">
+      <span class="row"><span class="word gold">Открыть.</span></span>
+      <span class="row"><span class="word lime">Войти.</span></span>
+      <span class="row"><span class="word glitchw" data-text="Владеть.">Владеть.</span></span>
+    </h1>
+    <div class="sub doors">
+      <p class="door"><span class="chaos-tag" style="color:var(--gold); transform:rotate(-1.5deg);">Sevastopol AI</span> — бот по городу. Где поесть, где закат, какой маршрут.</p>
+      <p class="door"><span class="chaos-tag" style="color:var(--lime); transform:rotate(1deg);">City Code</span> — закрытый круг. Правила, скидка у своих, мероприятия. Не скидочная карта.</p>
+      <p class="door"><span class="chaos-tag" style="color:var(--bronze); transform:rotate(-1deg);">Crimea RWA</span> — доля городской кассы в ЦФА. Сначала точка, потом бумага, потом оператор.</p>
+    </div>
+    <div class="cta-row">
+      <span class="tilt-l"><a href="https://t.me/SevastopolAIBot" target="_blank" rel="noopener" class="btn magnetic">Открыть бота</a></span>
+      <span class="tilt-r"><a href="course.html" class="btn ghost magnetic">Курс RWA</a></span>
+      <span class="tilt-r"><a href="cfa.html" class="btn ghost magnetic">Сборка выпуска</a></span>
+    </div>
+    <p class="cta-note">City Code — по заявке или за вклад в город.</p>
+  </div>
+
+  <div class="corner-coord bl">44.6167° N · 33.5258° E</div>
+  <div class="corner-coord br">SEVASTOPOL · BLACK SEA<br>EST. 2026</div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <div class="item">
+      <span class="m-lime">SEVASTOPOL AI</span><span class="sep">✦</span>
+      <span class="m-pink">CITY CODE</span><span class="sep">✦</span>
+      <span class="m-lime">CRIMEA RWA</span><span class="sep">✦</span>
+      <span class="m-pink">YURICH RWA COURSE</span><span class="sep">✦</span>
+      <span class="m-lime">RWA FOUNDATION</span><span class="sep">✦</span>
+      <span class="m-pink">TOKENIZATION</span><span class="sep">✦</span>
+      <span class="m-lime">REAL WORLD ASSETS</span><span class="sep">✦</span>
+      <span class="m-pink">TOKENIZE THE WORLD</span><span class="sep">✦</span>
+      <span class="m-lime">CITY AI</span><span class="sep">✦</span>
+      <span class="m-pink">CITY CODE</span><span class="sep">✦</span>
+      <span class="m-lime">CRIMEA RWA</span><span class="sep">✦</span>
+      <span class="m-pink">YURICH RWA</span><span class="sep">✦</span>
+    </div>
+    <div class="item">
+      <span class="m-lime">SEVASTOPOL AI</span><span class="sep">✦</span>
+      <span class="m-pink">CITY CODE</span><span class="sep">✦</span>
+      <span class="m-lime">CRIMEA RWA</span><span class="sep">✦</span>
+      <span class="m-pink">YURICH RWA COURSE</span><span class="sep">✦</span>
+      <span class="m-lime">RWA FOUNDATION</span><span class="sep">✦</span>
+      <span class="m-pink">TOKENIZATION</span><span class="sep">✦</span>
+      <span class="m-lime">REAL WORLD ASSETS</span><span class="sep">✦</span>
+      <span class="m-pink">TOKENIZE THE WORLD</span><span class="sep">✦</span>
+      <span class="m-lime">CITY AI</span><span class="sep">✦</span>
+      <span class="m-pink">CITY CODE</span><span class="sep">✦</span>
+      <span class="m-lime">CRIMEA RWA</span><span class="sep">✦</span>
+      <span class="m-pink">YURICH RWA</span><span class="sep">✦</span>
+    </div>
+    <div class="item">
+      <span class="m-lime">SEVASTOPOL AI</span><span class="sep">✦</span>
+      <span class="m-pink">CITY CODE</span><span class="sep">✦</span>
+      <span class="m-lime">CRIMEA RWA</span><span class="sep">✦</span>
+      <span class="m-pink">YURICH RWA COURSE</span><span class="sep">✦</span>
+      <span class="m-lime">RWA FOUNDATION</span><span class="sep">✦</span>
+      <span class="m-pink">TOKENIZATION</span><span class="sep">✦</span>
+      <span class="m-lime">REAL WORLD ASSETS</span><span class="sep">✦</span>
+      <span class="m-pink">TOKENIZE THE WORLD</span><span class="sep">✦</span>
+      <span class="m-lime">CITY AI</span><span class="sep">✦</span>
+      <span class="m-pink">CITY CODE</span><span class="sep">✦</span>
+      <span class="m-lime">CRIMEA RWA</span><span class="sep">✦</span>
+      <span class="m-pink">YURICH RWA</span><span class="sep">✦</span>
+    </div>
+  </div>
+</div>
+
+<section class="chapter" id="sevastopol">
+  <div class="wipe" style="background:var(--gold)" aria-hidden="true"></div>
+  <span class="bg-num" aria-hidden="true">01</span>
+  <div class="wrap grid-2">
+    <div>
+      <div class="eyebrow" style="color:var(--gold)"><span class="num">01</span> Открытие</div>
+      <h2 class="split">Город, который отвечает</h2>
+      <p class="copy reveal">Sevastopol AI — телеграм-бот. Где поесть, где закат и др. 200+ мест еды, 100+ локаций, маршруты и события. Фото и координаты.</p>
+      <p class="copy reveal reveal-2">Заходят с одним вопросом. После добавляют свои места.</p>
+      <a href="https://t.me/SevastopolAIBot" target="_blank" rel="noopener" class="btn magnetic" style="margin-top:22px;background:var(--gold);border-color:var(--gold);">Открыть бота</a>
+    </div>
+    <div class="routecard reveal">
+      <img src="ai-screen.jpg" loading="lazy" decoding="async" width="1024" height="1280" alt="Родмап Sevastopol AI: локации, маршруты, события, сообщество">
+    </div>
+  </div>
+</section>
+
+<section class="chapter cc-section" id="citycode">
+  <div class="wipe" style="background:var(--lime)" aria-hidden="true"></div>
+  <span class="bg-num" style="-webkit-text-stroke-color:rgba(215,255,61,.10);" aria-hidden="true">02</span>
+  <div class="wrap grid-2 cc-grid">
+    <div class="keychain-stage">
+      <div class="kc-photo-wrap">
+        <div class="kc-tilt">
+          <img class="kc-photo" src="keychain.webp" loading="lazy" decoding="async" width="1536" height="1024" alt="Связка ключей City Code: Code, Privileges, Partner Circle, Events, Insights, Member Circle">
+        </div>
+        <div class="kc-hotspots">
+          <button type="button" class="kc-hot hs-hex"    data-key="code"       title="Code"            aria-label="01 Code" style="--hc:#d7ff3d;"></button>
+          <button type="button" class="kc-hot hs-oval"   data-key="privileges" title="Privileges"     aria-label="02 Privileges" style="--hc:#7fb4e8;"></button>
+          <button type="button" class="kc-hot hs-blade"  data-key="partner"    title="Partner Circle" aria-label="03 Partner Circle" style="--hc:#c3f000;"></button>
+          <button type="button" class="kc-hot hs-angle"  data-key="events"     title="Events"         aria-label="04 Events" style="--hc:#9a9a9a;"></button>
+          <button type="button" class="kc-hot hs-bar"    data-key="insights"   title="Insights"       aria-label="05 Insights" style="--hc:#1f86ff;"></button>
+          <button type="button" class="kc-hot hs-circle" data-key="member"     title="Member Circle"   aria-label="06 Member Circle" style="--hc:#ff7a1f;"></button>
+        </div>
+      </div>
+      <div class="kc-hint">Нажми на ключ →</div>
+    </div>
+    <div>
+      <div class="eyebrow" style="color:var(--lime)"><span class="num">02</span> Круг</div>
+      <h2 class="split">Ключ к городу</h2>
+      <p class="copy reveal">City Code — закрытый круг вокруг Севастополя. Шесть ключей: правила, скидка у партнёров, сами партнёры, закрытые мероприятия, люди.</p>
+
+      <div class="kc-panel reveal" id="kcPanel" aria-live="polite">
+        <div class="kc-panel-num" id="kcNum">01</div>
+        <div class="kc-panel-body">
+          <div class="kc-panel-title" id="kcTitle">Code</div>
+          <div class="kc-panel-desc" id="kcDesc">Свод правил системы: что можно, что нельзя, как устроен доступ и на каких условиях можно попасть внутрь.</div>
+        </div>
+      </div>
+
+      <div class="cc-list reveal" role="group" aria-label="Разделы City Code">
+        <button type="button" class="cc-chip" data-key="code" aria-pressed="false">Code</button>
+        <button type="button" class="cc-chip" data-key="privileges" aria-pressed="false">Privileges</button>
+        <button type="button" class="cc-chip" data-key="partner" aria-pressed="false">Partner Circle</button>
+        <button type="button" class="cc-chip" data-key="events" aria-pressed="false">Events</button>
+        <button type="button" class="cc-chip" data-key="insights" aria-pressed="false">Insights</button>
+        <button type="button" class="cc-chip" data-key="member" aria-pressed="false">Member Circle</button>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="partners">
+      <a class="partner magnetic" href="https://t.me/thehermesex" target="_blank" rel="noopener">
+        <img class="hermes" src="hermes.jpg" loading="lazy" decoding="async" width="336" height="336" alt="Hermes Exchange">
+        <small>Hermes Exchange (Financial infra)</small>
+      </a>
+      <a class="partner magnetic" href="https://t.me/NeBankRobot?start=YURICH" target="_blank" rel="noopener">
+        <img class="nebank" src="nebank.png" loading="lazy" decoding="async" width="389" height="317" alt="Небанк App">
+        <small>Небанк App (Financial infra)</small>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="chapter rwa-section" id="rwa">
+  <div class="wipe" style="background:var(--bronze)" aria-hidden="true"></div>
+  <span class="bg-num" style="right:auto; left:-.03em; -webkit-text-stroke-color:rgba(201,138,78,.12);" aria-hidden="true">03</span>
+  <div class="wrap">
+    <div class="eyebrow" style="justify-content:center; color:var(--bronze)"><span class="num">03</span> Владение</div>
+    <h2 class="split">Касса города в выпуске</h2>
+    <p class="copy reveal">В городе уже есть оборот. Crimea RWA смотрит, можно ли долю этой кассы собрать под 259-ФЗ. Ниже учебный выпуск, не продажа.</p>
+
+    <div class="rwa-how reveal">
+      <div>
+        <div class="rwa-tabs" role="tablist" aria-label="Как устроена токенизация">
+          <button type="button" id="rwaTabObj" class="rwa-tab active" data-rwa="obj" role="tab" aria-selected="true">А · Объект</button>
+          <button type="button" id="rwaTabStr" class="rwa-tab" data-rwa="str" role="tab" aria-selected="false">Б · Структура</button>
+          <button type="button" id="rwaTabTok" class="rwa-tab" data-rwa="tok" role="tab" aria-selected="false">В · Токен</button>
+        </div>
+        <div class="rwa-step" id="rwaStep" aria-live="polite">
+          <div class="rs-letter" id="rwaLetter">А</div>
+          <h3 id="rwaTitle">Объект</h3>
+          <p id="rwaDesc">Реальная вещь или право: доля дохода партнёра, права на оборудование или помещение, доступ к закрытому событию. У неё уже есть владелец, стоимость и история — до всякой цифровизации.</p>
+        </div>
+      </div>
+      <div class="rwa-visual">
+        
+        <div class="rwa-screen is-active" data-rwa-screen="obj" role="tabpanel" aria-labelledby="rwaTabObj">
+          <figure class="asset-shot">
+            <img src="rwa-asset-coffee.jpg" loading="lazy" decoding="async" width="1040" height="567" alt="Стойка кофейни в вечернем свете: эспрессо-машина, чашки, руки бариста с темпером">
+            <figcaption class="asset-flag">условный пример</figcaption>
+          </figure>
+          <div class="asset-plate">
+            <div class="ap-head">до выпуска</div>
+            <div class="ap-row"><b>Актив</b><span>доля дохода кофейни-партнёра City Code, Севастополь</span></div>
+            <div class="ap-row"><b>Владелец</b><span>собственник точки, партнёр City Code</span></div>
+            <div class="ap-row"><b>Оборот</b><span>кассовая выручка, история 12 месяцев</span></div>
+          </div>
+        </div>
+
+        <div class="rwa-screen" data-rwa-screen="str" role="tabpanel" aria-labelledby="rwaTabStr">
+          <article class="doc-sheet">
+            <header class="doc-head">
+              <span class="doc-kicker">учебный текст · не оферта</span>
+              <h3 class="doc-title">Решение о выпуске</h3>
+              <div class="doc-sub">цифровых финансовых активов · 259-ФЗ</div>
+            </header>
+            <dl class="doc-fields">
+              <div class="df"><dt>Эмитент</dt><dd>ООО «Кофейня-партнёр City Code», Севастополь</dd></div>
+              <div class="df"><dt>ОИС</dt><dd>оператор из реестра Банка России</dd></div>
+              <div class="df"><dt>ЦФА удостоверяет</dt><dd>денежное требование — доля дохода точки</dd></div>
+              <div class="df"><dt>Номинал единицы</dt><dd>5 000 ₽</dd></div>
+              <div class="df"><dt>Объём выпуска</dt><dd>10 000 000 ₽ · 2 000 единиц</dd></div>
+              <div class="df"><dt>Погашение</dt><dd>31.12.2028</dd></div>
+              <div class="df"><dt>Порядок выплат</dt><dd>ежеквартально, из выручки точки</dd></div>
+              <div class="df"><dt>Инвестор</dt><dd>неквалифицированные — в пределах лимита</dd></div>
+              <div class="df"><dt>Статус</dt><dd class="doc-status">учебный макет</dd></div>
+            </dl>
+            <a class="doc-pdf" href="https://atomyze.ru/oper-docs/releases/" target="_blank" rel="noopener"
+               title="Пример раскрытия оператора: таблица выпусков с PDF решений">PDF решения у оператора <span aria-hidden="true">↗</span></a>
+          </article>
+        </div>
+
+        <div class="rwa-screen" data-rwa-screen="tok" role="tabpanel" aria-labelledby="rwaTabTok">
+          <div class="broker-stage" id="brokerStage">
+            <div class="broker" id="brokerScreen">
+              <div class="bk-status"><span>9:41</span><span class="bk-status-ico" aria-hidden="true"><i></i><i></i><i></i><i></i></span></div>
+              <div class="bk-bar"><span class="bk-edge" aria-hidden="true">‹</span><span>Актив</span><span class="bk-edge" aria-hidden="true">⋯</span></div>
+              <div class="bk-card">
+                <div class="bk-head">
+                  <span class="bk-ico" aria-hidden="true">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h11v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V9Z"/><path d="M15 10h2.5a2.5 2.5 0 0 1 0 5H15"/><path d="M7 5.5c0 1-1 1.2-1 2.2M11 5.5c0 1-1 1.2-1 2.2"/></svg>
+                  </span>
+                  <div class="bk-names">
+                    <b>Доля дохода кофейни · City Code</b>
+                    <span>ЦФА · денежное требование</span>
+                  </div>
+                  <span class="bk-chip">в обращении</span>
+                </div>
+                <div class="bk-yield"><span class="bk-y-pre">ориентир</span><span class="bk-y-num">17,5%</span><span class="bk-y-lbl">· учебный счёт</span></div>
+                <div class="bk-rows">
+                  <div class="bk-row"><span>Минимум</span><b>5 000 ₽</b></div>
+                  <div class="bk-row"><span>Номинал единицы</span><b>5 000 ₽</b></div>
+                  <div class="bk-row"><span>Погашение</span><b>31.12.2028</b></div>
+                </div>
+                <div class="bk-ois">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6l7-3Z"/><path d="M9 12l2 2 4-4"/></svg>
+                  ОИС · запись в реестре оператора из реестра ЦБ
+                </div>
+                <button type="button" class="bk-cta" id="bkToDoc">Условия выпуска</button>
+                <div class="bk-note">Учебный макет экрана. Не приложение банка, не оферта.</div>
+              </div>
+              <div class="bk-card">
+                <div class="bk-chart-head"><b>Выручка точки · по месяцам</b><span>расчёт выпуска</span></div>
+                <svg class="bk-chart" viewBox="0 0 312 84" preserveAspectRatio="none" aria-hidden="true">
+                  <rect x="0"   y="50" width="18" height="34" rx="3" fill="#C98A4E" opacity=".35"/>
+                  <rect x="26"  y="44" width="18" height="40" rx="3" fill="#C98A4E" opacity=".4"/>
+                  <rect x="52"  y="46" width="18" height="38" rx="3" fill="#C98A4E" opacity=".45"/>
+                  <rect x="78"  y="38" width="18" height="46" rx="3" fill="#C98A4E" opacity=".5"/>
+                  <rect x="104" y="40" width="18" height="44" rx="3" fill="#C98A4E" opacity=".55"/>
+                  <rect x="130" y="32" width="18" height="52" rx="3" fill="#C98A4E" opacity=".6"/>
+                  <rect x="156" y="34" width="18" height="50" rx="3" fill="#C98A4E" opacity=".68"/>
+                  <rect x="182" y="26" width="18" height="58" rx="3" fill="#C98A4E" opacity=".76"/>
+                  <rect x="208" y="28" width="18" height="56" rx="3" fill="#C98A4E" opacity=".84"/>
+                  <rect x="234" y="20" width="18" height="64" rx="3" fill="#C98A4E" opacity=".92"/>
+                  <rect x="260" y="24" width="18" height="60" rx="3" fill="#C98A4E" opacity=".96"/>
+                  <rect x="286" y="14" width="18" height="70" rx="3" fill="#C98A4E"/>
+                </svg>
+              </div>
+              <div class="bk-card bk-about">ЦФА — запись в реестре оператора из реестра Банка России. Не криптоактив и не вклад.</div>
+              <div class="bk-tabbar" aria-hidden="true"><span class="on">Рынок</span><span>Портфель</span><span>Сделки</span><span>Ещё</span></div>
+            </div>
+          </div>
+        </div>
+
+        <p class="rwa-legal">YuRich не ОИС и не биржа. Выпуск делает оператор из реестра Банка России.</p>
+      </div>
+    </div>
+
+    <div class="soon reveal">Следующий горизонт</div>
+  </div>
+</section>
+
+<section class="chapter" id="course">
+  <div class="wipe" style="background:var(--pink)" aria-hidden="true"></div>
+  <span class="bg-num" aria-hidden="true">04</span>
+  <div class="wrap">
+    <div class="eyebrow" style="color:var(--pink)"><span class="num">04</span> Курс</div>
+    <h2 class="split">Шесть модулей, без сигналов</h2>
+    <p class="copy reveal">Курс про то, что человек покупает, когда ему показывают токен на актив. Матчасть, механика, 259-ФЗ, риски, карта игроков.</p>
+
+    <div class="mod-counter reveal">
+      <span class="mc-num">06</span>
+      <span class="mc-lbl">модулей курса</span>
+    </div>
+    <div class="mod-chips reveal" aria-label="Что внутри курса">
+      <button type="button" class="cc-chip" tabindex="-1">Матчасть</button>
+      <button type="button" class="cc-chip" tabindex="-1">Механика</button>
+      <button type="button" class="cc-chip" tabindex="-1">Регулирование</button>
+      <button type="button" class="cc-chip" tabindex="-1">Риски</button>
+      <button type="button" class="cc-chip" tabindex="-1">Категории активов</button>
+      <button type="button" class="cc-chip" tabindex="-1">Карта рынка</button>
+    </div>
+    <p class="mod-note reveal"><b>Без трейдинга и сигналов</b> — без фин.рекомендаций. Глоссарий открывается за подписку, книга «RWA / ЦФА. Токенизация» by YuRich — отдельно и платно.</p>
+
+    <div class="cta-row mod-fmt" style="margin-top:22px">
+      <a href="course.html" class="btn magnetic">Открыть курс</a>
+      <a href="glossary.html" class="btn ghost magnetic">Глоссарий</a>
+      <a href="https://t.me/YuRichRWA" target="_blank" rel="noopener" class="btn ghost magnetic">Канал</a>
+    </div>
+  </div>
+</section>
+
+<section class="chapter" id="cfa">
+  <div class="wipe" style="background:#2E3D52" aria-hidden="true"></div>
+  <span class="bg-num" aria-hidden="true">05</span>
+  <div class="wrap">
+    <div class="eyebrow"><span class="num">05</span> для бизнеса</div>
+    <h2 class="split">Сборка выпуска ЦФА</h2>
+    <p class="copy reveal">Партнёрам City Code и любому желающему. Созвон, разбор, посадка на ОИС. Выпускает оператор из реестра ЦБ. Если займ дешевле, скажу на созвоне.</p>
+
+    <div class="steps reveal">
+      <div class="step-cell">
+        <div class="s-num">01</div>
+        <h3>Созвон</h3>
+        <p>30–40 минут. Кто собственник, какой оборот по банку, сколько нужно и на что. Если ЦФА дороже обычного займа — так и фиксируем.</p>
+      </div>
+      <div class="step-cell s-price">
+        <div class="s-num">02</div>
+        <h3>Разбор</h3>
+        <p>1–2 недели. Юрлицо, актив, касса, долги. Ответ: делаем / не делаем / делаем только в такой конструкции.</p>
+        <span class="price-tag">80 000 ₽</span>
+      </div>
+      <div class="step-cell">
+        <div class="s-num">03</div>
+        <h3>Сборка</h3>
+        <p>2–4 недели. Что покупает инвестор, кто эмитент, даты выплат, тянет ли касса. Текст выпуска и черновик под форму площадки.</p>
+        <span class="price-tag" style="color:var(--ink-dim); border-color:var(--line);">250–400 000 ₽</span>
+      </div>
+    </div>
+
+    <div class="nots reveal" aria-label="Чего мы не делаем">
+      <button type="button" class="cc-chip" tabindex="-1">Не оператор</button>
+      <button type="button" class="cc-chip" tabindex="-1">Не биржа</button>
+      <button type="button" class="cc-chip" tabindex="-1">Через лиц. площадку </button>
+    </div>
+
+    <div class="cta-row" style="margin-top:26px">
+      <a href="cfa.html" class="btn magnetic">Читать офер</a>
+      <a href="https://t.me/PavelYuRichRWA" target="_blank" rel="noopener" class="btn ghost magnetic">Написать</a>
+    </div>
+  </div>
+</section>
+
+<section class="thesis">
+  <div class="wrap">
+    <div class="thesis-scatter">
+      <p class="tf tf1 tf-big tf-gold split">Бот</p>
+      <p class="tf tf2 tf-sm tf-white split">открывает город.</p>
+      <p class="tf tf3 tf-big tf-lime split">Круг</p>
+      <p class="tf tf4 tf-sm tf-white split">пускает внутрь.</p>
+      <p class="tf tf5 tf-big tf-bronze split">Касса</p>
+      <p class="tf tf6 tf-sm tf-white split">может стать выпуском.</p>
+    </div>
+    <div class="signature">YURICHHUB — SEVASTOPOL AI · CITY CODE · CRIMEA RWA</div>
+  </div>
+</section>
+
+<div class="wordwall" aria-hidden="true"><p class="big">YURICHHUB</p></div>
+
+<footer>
+  <div class="wrap foot-row">
+    <div class="foot-meta">Sevastopol · Black Sea · Est. 2026</div>
+    <div class="foot-links">
+      <a href="https://t.me/YuRichRWA" target="_blank" rel="noopener" class="magnetic">Telegram</a>
+      <a href="https://x.com/PavelYuRichRWA" target="_blank" rel="noopener" class="magnetic">Twitter / X</a>
+      <a href="glossary.html" class="magnetic">Глоссарий</a>
+      <a href="https://t.me/Sevastopol_AI" target="_blank" rel="noopener" class="magnetic">Sevastopol AI</a>
+    </div>
+  </div>
+</footer>
+</div>
+<div id="scroll-spacer" aria-hidden="true"></div>
+
+<script>
+(function(){
+  'use strict';
+
+  var isCoarse  = window.matchMedia('(pointer: coarse)').matches;
+  var reduced   = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var TRANS_MS  = 380;
+
+  document.documentElement.classList.add('curtains');
+
+  requestAnimationFrame(function(){
+    requestAnimationFrame(function(){ document.documentElement.classList.add('page-ready'); });
+  });
+
+  function isModified(e){ return e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0; }
+
+  document.addEventListener('click', function(e){
+    if(isModified(e)) return;
+    var a = e.target.closest('a');
+    if(!a) return;
+    var href = a.getAttribute('href');
+    if(!href) return;
+    if(a.target === '_blank' || a.hasAttribute('download')) return;
+    if(/^(mailto:|tel:)/i.test(href)) return;
+    if(/^https?:\/\//i.test(href) && a.origin !== window.location.origin) return;
+
+    if(href.charAt(0) === '#'){
+      if(href.length > 1){
+        var targetEl = document.querySelector(href);
+        if(targetEl){
+          e.preventDefault();
+          scrollToElement(targetEl);
+          try{ history.pushState(null, '', href); }catch(_){ location.hash = href; }
+        }
+      }
+      return;
+    }
+
+    if(reduced){ return; }
+    e.preventDefault();
+    document.documentElement.classList.remove('page-ready');
+    document.documentElement.classList.add('page-leaving');
+    setTimeout(function(){ window.location.href = href; }, TRANS_MS);
+  });
+
+  window.addEventListener('pageshow', function(e){
+    if(e.persisted){
+      document.documentElement.classList.remove('page-leaving');
+      document.documentElement.classList.add('page-ready');
+    }
+  });
+
+  var content = document.getElementById('scroll-content');
+  var spacer  = document.getElementById('scroll-spacer');
+  var smoothMQ = window.matchMedia('(pointer:fine) and (prefers-reduced-motion:no-preference)').matches;
+  var useSmooth = smoothMQ && content && spacer;
+  if(useSmooth) document.documentElement.classList.add('smooth-scroll');
+  var current = window.scrollY;
+  var target  = window.scrollY;
+  var checkReveals = null;
+
+  function elementY(el){
+    return el.getBoundingClientRect().top + window.scrollY;
+  }
+  function scrollToElement(el){
+    var y = elementY(el);
+    if(useSmooth){
+      window.scrollTo(0, y);
+      target = y;
+    } else {
+      window.scrollTo({ top:y, behavior:reduced ? 'auto' : 'smooth' });
+    }
+  }
+
+  if(useSmooth){
+    function setSpacer(){ spacer.style.height = content.getBoundingClientRect().height + 'px'; }
+    setSpacer();
+    if('ResizeObserver' in window){
+      new ResizeObserver(setSpacer).observe(content);
+    } else {
+      window.addEventListener('resize', setSpacer);
+      window.addEventListener('load', setSpacer);
+      if(document.fonts && document.fonts.ready) document.fonts.ready.then(setSpacer);
+    }
+    window.addEventListener('scroll', function(){ target = window.scrollY; }, { passive:true });
+
+    var heroBg  = document.getElementById('heroBg');
+    var bgNums  = document.querySelectorAll('.bg-num');
+
+    (function raf(){
+      current += (target - current) * 0.095;
+      if(Math.abs(target - current) < 0.08) current = target;
+      content.style.transform = 'translate3d(0,' + (-current) + 'px,0)';
+      if(heroBg) heroBg.style.transform = 'translate3d(0,' + (current * 0.18) + 'px,0)';
+      bgNums.forEach(function(n){ n.style.transform = 'translate3d(0,' + (current * -0.06) + 'px,0)'; });
+      if(checkReveals) checkReveals();
+      requestAnimationFrame(raf);
+    })();
+
+    if(location.hash && location.hash.length > 1){
+      var seekHash = function(){
+        var deep = document.querySelector(location.hash);
+        if(!deep) return;
+        var y = elementY(deep);
+        window.scrollTo(0, y);
+        current = target = y;
+      };
+      requestAnimationFrame(seekHash);
+      window.addEventListener('load', function(){ requestAnimationFrame(seekHash); });
+    }
+  }
+
+  var dot  = document.getElementById('curDot');
+  var ring = document.getElementById('curRing');
+  if(!isCoarse && !reduced && dot && ring){
+    document.documentElement.classList.add('has-cursor');
+    var mx = innerWidth / 2, my = innerHeight / 2, rx = mx, ry = my;
+    window.addEventListener('mousemove', function(e){ mx = e.clientX; my = e.clientY; }, { passive:true });
+    (function loop(){
+      dot.style.transform = 'translate(' + mx + 'px,' + my + 'px) translate(-50%,-50%)';
+      rx += (mx - rx) * 0.18;
+      ry += (my - ry) * 0.18;
+      ring.style.transform = 'translate(' + rx + 'px,' + ry + 'px) translate(-50%,-50%)';
+      requestAnimationFrame(loop);
+    })();
+    document.querySelectorAll('a, button, .kc-photo-wrap').forEach(function(el){
+      el.addEventListener('mouseenter', function(){
+        var pink = el.closest('#citycode');
+        ring.classList.add(pink ? 'hover-pink' : 'hover');
+      });
+      el.addEventListener('mouseleave', function(){ ring.classList.remove('hover', 'hover-pink'); });
+    });
+  }
+
+  if(!isCoarse && !reduced){
+    document.querySelectorAll('.magnetic').forEach(function(el){
+      el.addEventListener('mousemove', function(e){
+        var r = el.getBoundingClientRect();
+        var dx = (e.clientX - (r.left + r.width / 2)) * 0.35;
+        var dy = (e.clientY - (r.top + r.height / 2)) * 0.35;
+        el.style.transform = 'translate(' + dx + 'px,' + dy + 'px)';
+      });
+      el.addEventListener('mouseleave', function(){ el.style.transform = ''; });
+    });
+  }
+
+  document.querySelectorAll('.split').forEach(function(el){
+    if(el.getAttribute('data-split')) return;
+    var words = el.textContent.trim().split(/\s+/);
+    el.innerHTML = words.map(function(w, i){
+      return '<span class="rword"><span class="rword-inner" style="transition-delay:' + (i * 0.05) + 's">' + w + '</span></span>';
+    }).join(' ');
+    el.setAttribute('data-split', '1');
+  });
+
+  var chapterEls = Array.prototype.slice.call(document.querySelectorAll('section.chapter'));
+  var revealEls  = Array.prototype.slice.call(document.querySelectorAll('.reveal'))
+                     .filter(function(el){ return !el.classList.contains('in-view'); });
+  var splitEls   = Array.prototype.slice.call(document.querySelectorAll('.split'))
+                     .filter(function(el){ return !el.classList.contains('revealed'); });
+
+  if(useSmooth){
+    
+    checkReveals = function(){
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+      var i, r;
+      for(i = revealEls.length - 1; i >= 0; i--){
+        r = revealEls[i].getBoundingClientRect();
+        if(r.top < vh * 0.88 && r.bottom > 0){
+          revealEls[i].classList.add('in-view');
+          revealEls.splice(i, 1);
+        }
+      }
+      for(i = splitEls.length - 1; i >= 0; i--){
+        r = splitEls[i].getBoundingClientRect();
+        if(r.top < vh * 0.72 && r.bottom > 0){
+          splitEls[i].classList.add('revealed');
+          splitEls.splice(i, 1);
+        }
+      }
+      for(i = 0; i < chapterEls.length; i++){
+        r = chapterEls[i].getBoundingClientRect();
+        
+        var on = r.top < vh * 0.94 && r.bottom > vh * 0.06;
+        var w = chapterEls[i].querySelector('.wipe');
+        if(on && w && !w.classList.contains('wiped')) w.classList.add('wiped');
+      }
+    };
+    checkReveals();
+  } else if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('in-view'); io.unobserve(en.target); }
+      });
+    }, { threshold:0.15 });
+    revealEls.forEach(function(el){ io.observe(el); });
+
+    var splitIo = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('revealed'); splitIo.unobserve(en.target); }
+      });
+    }, { threshold:0.3 });
+    splitEls.forEach(function(el){ splitIo.observe(el); });
+
+    var wipeIo = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          var w = en.target.querySelector('.wipe');
+          if(w) w.classList.add('wiped');
+          wipeIo.unobserve(en.target);
+        }
+      });
+    }, { threshold:0.12 });
+    chapterEls.forEach(function(el){ wipeIo.observe(el); });
+  } else {
+    
+    revealEls.forEach(function(el){ el.classList.add('in-view'); });
+    splitEls.forEach(function(el){ el.classList.add('revealed'); });
+    chapterEls.forEach(function(el){ var w = el.querySelector('.wipe'); if(w) w.classList.add('wiped'); });
+  }
+
+  function safetyOpenWipes(){
+    var vh = window.innerHeight || document.documentElement.clientHeight;
+    chapterEls.forEach(function(sec){
+      var r = sec.getBoundingClientRect();
+      if(r.top < vh && r.bottom > 0){
+        var w = sec.querySelector('.wipe');
+        if(w && !w.classList.contains('wiped')) w.classList.add('wiped');
+      }
+    });
+  }
+  window.addEventListener('load', function(){ setTimeout(safetyOpenWipes, 700); });
+  setTimeout(safetyOpenWipes, 1500);
+
+  var kcData = {
+    code:       { n:'01', title:'Code',           desc:'Свод правил системы: что можно, что нельзя, как устроен доступ и на каких условиях можно потерять членство.' },
+    privileges: { n:'02', title:'Privileges',      desc:'Привилегии участников у партнёров — фиксированная скидка или бонус на реальные покупки в сети.' },
+    partner:    { n:'03', title:'Partner Circle',  desc:'Сеть партнёров города: кофейни, рестораны, сервисы и специалисты, которые приняли систему.' },
+    events:     { n:'04', title:'Events',          desc:'Закрытые события и experience только для участников круга — без публичного анонса.' },
+    insights:   { n:'05', title:'Insights',        desc:'Баланс спроса и пропускной способности партнёров — данные, которые держат систему живой.' },
+    member:     { n:'06', title:'Member Circle',   desc:'Сообщество участников, которые формируют спрос и строят город вместе.' }
+  };
+  var kcNum   = document.getElementById('kcNum');
+  var kcTitle = document.getElementById('kcTitle');
+  var kcDesc  = document.getElementById('kcDesc');
+  var kcPanel = document.getElementById('kcPanel');
+  var photoWrap = document.querySelector('.kc-photo-wrap');
+
+  function spawnSparks(x, y, color, count){
+    if(!photoWrap) return;
+    var rect = photoWrap.getBoundingClientRect();
+    var lx = x - rect.left;
+    var ly = y - rect.top;
+    for(var i = 0; i < count; i++){
+      var s = document.createElement('span');
+      s.className = 'kc-spark';
+      var angle = Math.random() * Math.PI * 2;
+      var dist = 25 + Math.random() * 45;
+      s.style.left = lx + 'px';
+      s.style.top  = ly + 'px';
+      s.style.setProperty('--dx', Math.cos(angle) * dist + 'px');
+      s.style.setProperty('--dy', Math.sin(angle) * dist + 'px');
+      s.style.setProperty('--sc', color);
+      photoWrap.appendChild(s);
+      (function(node){ setTimeout(function(){ node.remove(); }, 650); })(s);
+    }
+  }
+
+  function activateKey(key, e){
+    var d = kcData[key];
+    if(!d) return;
+    kcNum.textContent   = d.n;
+    kcTitle.textContent = d.title;
+    kcDesc.textContent  = d.desc;
+    if(kcPanel){
+      kcPanel.style.animation = 'none';
+      void kcPanel.offsetWidth;
+      kcPanel.style.animation = reduced ? '' : 'panelPulse .4s ease';
+    }
+
+    document.querySelectorAll('.kc-hot, .cc-chip').forEach(function(el){
+      var on = el.getAttribute('data-key') === key;
+      el.classList.toggle('active', on);
+      el.classList.toggle('is-active', on && el.classList.contains('kc-hot'));
+      if(el.classList.contains('cc-chip')) el.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+
+    var activeBtn = document.querySelector('.kc-hot[data-key="' + key + '"]');
+    if(activeBtn && photoWrap){
+      var color = (getComputedStyle(activeBtn).getPropertyValue('--hc') || '').trim() || '#D7FF3D';
+      photoWrap.style.setProperty('--active-color', color);
+      photoWrap.classList.add('is-active');
+      if(e && !reduced){
+        var x = e.clientX, y = e.clientY;
+        if(e.detail === 0){
+          var br = activeBtn.getBoundingClientRect();
+          x = br.left + br.width / 2;
+          y = br.top + br.height / 2;
+        }
+        spawnSparks(x, y, color, 12);
+      }
+    }
+  }
+
+  document.querySelectorAll('.kc-hot, .cc-chip').forEach(function(el){
+    el.addEventListener('click', function(e){
+      activateKey(el.getAttribute('data-key'), el.classList.contains('kc-hot') ? e : null);
+    });
+  });
+  activateKey('code');
+
+  var rwaData = {
+    obj: { l:'А', t:'Объект',
+           d:'Реальная вещь или право: доля дохода партнёра, права на оборудование или помещение, доступ к закрытому событию. У неё уже есть владелец, стоимость и история — до всякой цифровизации.' },
+    str: { l:'Б', t:'Структура',
+           d:'Фиксируем права и обязанности: кто эмитент, что удостоверяет ЦФА, кто ведёт реестр и как проходят выплаты. Решение о выпуске — сухой юридический документ: без него запись в реестре ничего не значит.' },
+    tok: { l:'В', t:'Токен',
+           d:'Актив получает запись в реестре оператора из реестра Банка России и строку в приложении брокера. Владельцы, история переходов и условия выпуска — проверяемы. Город остаётся городом, меняется способ владения.' }
+  };
+  var rwaLetter = document.getElementById('rwaLetter');
+  var rwaTitle  = document.getElementById('rwaTitle');
+  var rwaDesc   = document.getElementById('rwaDesc');
+  var rwaStep   = document.getElementById('rwaStep');
+  var rwaScreens = Array.prototype.slice.call(document.querySelectorAll('.rwa-screen'));
+
+  var brokerStage = document.getElementById('brokerStage');
+  var brokerScreen = document.getElementById('brokerScreen');
+  function fitBroker(){
+    if(!brokerStage || !brokerScreen) return;
+    if(!brokerStage.offsetParent) return; 
+    var s = Math.min(1, (brokerStage.clientWidth || 390) / 390);
+    brokerScreen.style.transform = 'scale(' + s + ')';
+    brokerStage.style.height = Math.round(844 * s) + 'px';
+  }
+  window.addEventListener('resize', fitBroker);
+
+  function activateRwa(key){
+    var d = rwaData[key];
+    if(!d) return;
+    rwaLetter.textContent = d.l;
+    rwaTitle.textContent  = d.t;
+    rwaDesc.textContent   = d.d;
+    rwaScreens.forEach(function(s){
+      s.classList.toggle('is-active', s.getAttribute('data-rwa-screen') === key);
+    });
+    if(key === 'tok') fitBroker();
+    if(rwaStep){
+      rwaStep.style.animation = 'none';
+      void rwaStep.offsetWidth;
+      rwaStep.style.animation = reduced ? '' : 'stepPulse .5s ease';
+    }
+    document.querySelectorAll('.rwa-tab').forEach(function(b){
+      var on = b.getAttribute('data-rwa') === key;
+      b.classList.toggle('active', on);
+      b.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+  }
+  document.querySelectorAll('.rwa-tab').forEach(function(b){
+    b.addEventListener('click', function(){ activateRwa(b.getAttribute('data-rwa')); });
+  });
+  var bkToDoc = document.getElementById('bkToDoc');
+  if(bkToDoc){
+    bkToDoc.addEventListener('click', function(){ activateRwa('str'); });
+  }
+  fitBroker();
+
+  var heroEl = document.querySelector('.hero');
+  var spot   = document.getElementById('spotlight');
+  if(heroEl && spot && !isCoarse){
+    heroEl.addEventListener('mousemove', function(e){
+      var r = heroEl.getBoundingClientRect();
+      spot.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+      spot.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+    }, { passive:true });
+  }
+
+  var stage = document.querySelector('.keychain-stage');
+  var photo = document.querySelector('.kc-tilt');
+  if(stage && photo && !isCoarse && !reduced){
+    stage.addEventListener('mousemove', function(e){
+      var r = stage.getBoundingClientRect();
+      var px = (e.clientX - r.left) / r.width - 0.5;
+      var py = (e.clientY - r.top) / r.height - 0.5;
+      photo.style.transform = 'scale(1.02) rotateX(' + (py * -10) + 'deg) rotateY(' + (px * 12) + 'deg)';
+    }, { passive:true });
+    stage.addEventListener('mouseleave', function(){ photo.style.transform = ''; });
+  }
+})();
+</script>
+</body>
+</html>
