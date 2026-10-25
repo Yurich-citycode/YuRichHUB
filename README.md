@@ -21,3 +21,15 @@
 - `comics1–6.jpg` — лента комиксов на главной
 - `ai-screen.jpg`, `yurichhub.jpg`, `rwa-asset-coffee.jpg`, `keychain.webp`, `hermes.jpg`, `nebank.png` — картинки блоков главной
 - `CityCode.png` — логотип City Code
+
+## Стиль
+
+Шрифты лежат на сайте в `fonts/` (`fonts/fonts.css`), Google Fonts не нужен. У всех шрифтов есть кириллица.
+
+- Заголовки: Oswald 700 (`var(--yh-display)`)
+- Текст: Inter (`var(--yh-sans)`)
+- Метки и цифры: JetBrains Mono (`var(--yh-mono)`)
+- Тёмные страницы (главная, политика, форма): фон `#0A0A0A`, лайм `#D7FF3D`, золото `#C8A24A`
+- Светлые страницы (курс, глоссарий, ЦФА): бумага `#F1E9D8`, чернила `#18140F`, розовый `#E8377E`
+
+Шрифты распространяются по лицензии SIL Open Font License 1.1.

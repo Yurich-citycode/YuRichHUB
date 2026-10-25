@@ -20,9 +20,7 @@
 <meta name="twitter:image" content="https://yurich-citycode.github.io/YuRichHUB/glossarypreview.jpg">
 <meta name="theme-color" content="#F1E9D8">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2318140F'/%3E%3Ctext x='16' y='23' font-family='Arial,sans-serif' font-size='20' font-weight='bold' text-anchor='middle' fill='%23F1E9D8'%3EY%3C/text%3E%3Crect x='22' y='7' width='5' height='5' fill='%23E8377E'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="fonts/fonts.css">
 <style>
   
   :root{
@@ -36,7 +34,7 @@
   html{ scroll-behavior:smooth; }
   body{
     margin:0; background:var(--cream); color:var(--black);
-    font-family:'Archivo', sans-serif; position:relative;
+    font-family:var(--yh-sans); position:relative;
   }
   body::before{
     content:''; position:fixed; inset:0; pointer-events:none; opacity:.5; z-index:0;
@@ -65,7 +63,7 @@
   .backlink:hover{ color:var(--pink); border-color:var(--pink); }
   .head-kicker{ font-size:12px; font-weight:800; letter-spacing:.22em; text-transform:uppercase; color:var(--pink); margin:0 0 14px; }
   h1.head{
-    font-family:'Anton', sans-serif; font-weight:400; text-transform:uppercase;
+    font-family:var(--yh-display); font-weight:400; text-transform:uppercase;
     font-size:clamp(40px,6.5vw,76px); line-height:.95; letter-spacing:.005em; margin:0 0 18px; max-width:16ch;
   }
   .head-sub{ font-size:15px; line-height:1.65; max-width:62ch; margin:0; color:rgba(24,20,15,.78); }
@@ -84,7 +82,7 @@
     font-size:13px; font-weight:600; padding:8px 0 8px 14px; position:relative;
     border-left:2px solid var(--cream-line); transition:color .2s, border-color .2s, transform .2s;
   }
-  .sindex a .si-num{ font-family:'Anton', sans-serif; font-size:12px; letter-spacing:.06em; color:rgba(24,20,15,.4); transition:color .2s; }
+  .sindex a .si-num{ font-family:var(--yh-display); font-size:12px; letter-spacing:.06em; color:rgba(24,20,15,.4); transition:color .2s; }
   .sindex a::before{
     content:''; position:absolute; left:-6px; top:50%; width:10px; height:10px; border-radius:50%;
     background:var(--cream); border:2px solid var(--cream-line); transform:translateY(-50%);
@@ -106,11 +104,11 @@
   section.sec:first-of-type .sec-head{ margin-top:0; }
   .sec-kicker{
     display:inline-flex; align-items:center; gap:10px;
-    font-family:'Anton', sans-serif; font-size:15px; letter-spacing:.1em; text-transform:uppercase;
+    font-family:var(--yh-display); font-size:15px; letter-spacing:.1em; text-transform:uppercase;
     color:var(--yellow); background:var(--black); padding:7px 14px;
   }
   .sec-name{
-    font-family:'Anton', sans-serif; font-weight:400; text-transform:uppercase;
+    font-family:var(--yh-display); font-weight:400; text-transform:uppercase;
     font-size:clamp(26px,3.6vw,40px); line-height:1; margin:14px 0 0;
   }
 
@@ -126,7 +124,7 @@
     color:var(--pink); margin-bottom:10px;
   }
   .t-name{
-    font-family:'Anton', sans-serif; font-weight:400; text-transform:uppercase;
+    font-family:var(--yh-display); font-weight:400; text-transform:uppercase;
     font-size:clamp(24px,3vw,34px); line-height:1; letter-spacing:.01em; margin:0 0 14px;
   }
   .t-drop{
@@ -143,7 +141,7 @@
 
   .t-flow{ display:flex; flex-wrap:wrap; gap:8px; margin:0 0 20px; }
   .t-flow span{
-    font-family:'Anton', sans-serif; font-size:13px; letter-spacing:.05em; text-transform:uppercase;
+    font-family:var(--yh-display); font-size:13px; letter-spacing:.05em; text-transform:uppercase;
     border:2px solid var(--black); padding:7px 12px; background:var(--yellow);
   }
   .t-flow em{ font-style:normal; align-self:center; font-weight:900; }
@@ -154,10 +152,10 @@
   }
   .t-main-head{ display:flex; align-items:center; justify-content:space-between; gap:14px; margin-bottom:10px; }
   .t-main-head .mlabel{
-    font-family:'Anton', sans-serif; font-size:15px; letter-spacing:.14em; color:var(--yellow);
+    font-family:var(--yh-display); font-size:15px; letter-spacing:.14em; color:var(--yellow);
   }
   .share-btn{
-    font-family:'Archivo', sans-serif; font-size:11px; font-weight:800; letter-spacing:.06em; text-transform:uppercase;
+    font-family:var(--yh-sans); font-size:11px; font-weight:800; letter-spacing:.06em; text-transform:uppercase;
     color:var(--cream); background:transparent; border:1.5px solid rgba(241,233,216,.4); border-radius:100px;
     padding:7px 14px; cursor:pointer; transition:background .2s, border-color .2s, color .2s, transform .15s;
     white-space:nowrap;
@@ -172,7 +170,7 @@
     color:var(--pink); margin-bottom:10px;
   }
   .cp-caption{
-    font-family:'Anton', sans-serif; font-size:clamp(20px,2.6vw,28px); text-transform:uppercase;
+    font-family:var(--yh-display); font-size:clamp(20px,2.6vw,28px); text-transform:uppercase;
     letter-spacing:.02em; margin:0 0 22px;
   }
   .cp-frame{
@@ -188,7 +186,7 @@
 
   .foot{ margin-top:90px; border-top:3px solid var(--black); padding-top:44px; }
   .foot h3{
-    font-family:'Anton', sans-serif; font-weight:400; text-transform:uppercase;
+    font-family:var(--yh-display); font-weight:400; text-transform:uppercase;
     font-size:clamp(26px,3.6vw,42px); line-height:1; margin:0 0 14px; max-width:20ch;
   }
   .foot .f-sub{ font-size:15px; line-height:1.65; color:rgba(24,20,15,.75); max-width:56ch; margin:0 0 26px; }
@@ -239,7 +237,7 @@
     padding:12px 20px; border-radius:100px; opacity:0; pointer-events:none; transition:opacity .3s ease, transform .3s ease;
     max-width:88vw; text-align:center; }
   #toast.show{ opacity:1; transform:translateX(-50%) translateY(0); }
-  button.mact{ cursor:pointer; font-family:'Archivo', sans-serif; }
+  button.mact{ cursor:pointer; font-family:var(--yh-sans); }
 
   .routes{ margin:30px 0 0; }
   .rt-label{
@@ -248,7 +246,7 @@
   }
   .rt-chips{ display:flex; flex-wrap:wrap; gap:10px; }
   .rt-chip{
-    font-family:'Archivo', sans-serif; font-size:13px; font-weight:800; letter-spacing:.03em;
+    font-family:var(--yh-sans); font-size:13px; font-weight:800; letter-spacing:.03em;
     text-transform:uppercase; color:var(--black); background:var(--cream);
     border:3px solid var(--black); padding:12px 20px; cursor:pointer;
     box-shadow:5px 5px 0 var(--black);
@@ -265,7 +263,7 @@
   .rt-extra{ display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
   .rt-extra[hidden]{ display:none; }
   .rt-sub{
-    font-family:'Archivo', sans-serif; font-size:11px; font-weight:800; letter-spacing:.04em;
+    font-family:var(--yh-sans); font-size:11px; font-weight:800; letter-spacing:.04em;
     text-transform:uppercase; color:var(--black); background:transparent;
     border:2px solid var(--cream-line); padding:8px 13px; cursor:pointer;
     transition:border-color .2s, background .2s, color .2s;
@@ -294,7 +292,7 @@
   .t-body.qs li::before{
     counter-increment:qs; content:counter(qs);
     position:absolute; left:0; top:1px; width:30px; height:30px; display:grid; place-items:center;
-    font-family:'Anton', sans-serif; font-size:15px; line-height:1;
+    font-family:var(--yh-display); font-size:15px; line-height:1;
     background:var(--black); color:var(--yellow);
   }
 
@@ -312,7 +310,7 @@
       border:2px solid var(--black); padding:8px 14px; color:var(--black); background:var(--cream);
       transition:background .2s, color .2s;
     }
-    .chipindex a .si-num{ font-family:'Anton', sans-serif; margin-right:7px; color:var(--pink); }
+    .chipindex a .si-num{ font-family:var(--yh-display); margin-right:7px; color:var(--pink); }
     .chipindex a.active{ background:var(--black); color:var(--cream); }
     .chipindex a.active .si-num{ color:var(--yellow); }
     .chipindex a.featured{ font-size:15px; font-weight:800; color:var(--pink); border-color:var(--pink); }
@@ -1716,7 +1714,7 @@
 
   function drawArcText(ctx, text, cx, cy, r, fromDeg, toDeg, top, size, color, tracking){
     var chars = text.split('');
-    ctx.font = '800 ' + size + 'px Archivo, sans-serif';
+    ctx.font = '800 ' + size + 'px YH Sans, sans-serif';
     var widths = chars.map(function(ch){ return ctx.measureText(ch).width; });
     var total = tracking * (chars.length - 1);
     widths.forEach(function(w){ total += w; });
@@ -1742,7 +1740,7 @@
 
   function drawGlitchY(ctx, x, y, size, base, off){
     ctx.save();
-    ctx.font = '400 ' + size + 'px Anton, sans-serif';
+    ctx.font = '400 ' + size + 'px YH Display, sans-serif';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.fillStyle = off;
@@ -1849,25 +1847,25 @@
 
     ctx.fillStyle = PINK; ctx.fillRect(M, 72, 22, 22);
     ctx.fillStyle = BLACK;
-    ctx.font = '400 26px Anton, sans-serif';
+    ctx.font = '400 26px YH Display, sans-serif';
     ctx.fillText('YURICHHUB — ГЛОССАРИЙ RWA', M + 38, 93);
 
     ctx.fillStyle = PINK;
-    ctx.font = '800 24px Archivo, sans-serif';
+    ctx.font = '800 24px YH Sans, sans-serif';
     ctx.fillText(d.sec.toUpperCase(), M, 168);
     ctx.textAlign = 'right';
     ctx.fillStyle = 'rgba(24,20,15,.55)';
-    ctx.font = '400 26px Anton, sans-serif';
+    ctx.font = '400 26px YH Display, sans-serif';
     ctx.fillText('ТЕРМИН ' + ('0' + termNum).slice(-2), W - M, 168);
     ctx.textAlign = 'left';
 
     var y = 246;
     ctx.fillStyle = BLACK;
-    var name = fitFont(ctx, d.name.toUpperCase(), M, y, CW, 2, 134, 54, 44, '400 %spx Anton, sans-serif', 1.14);
+    var name = fitFont(ctx, d.name.toUpperCase(), M, y, CW, 2, 134, 54, 44, '400 %spx YH Display, sans-serif', 1.14);
     y = name.yAfter + 22;
 
     ctx.fillStyle = PINK;
-    var drop = fitFont(ctx, d.drop, M, y, CW, 3, 132, 30, 24, '800 %spx Archivo, sans-serif', 1.4);
+    var drop = fitFont(ctx, d.drop, M, y, CW, 3, 132, 30, 24, '800 %spx YH Sans, sans-serif', 1.4);
     y = drop.yAfter + 20;
 
     ctx.fillStyle = BLACK; ctx.fillRect(M, y, 200, 6);
@@ -1876,10 +1874,10 @@
     var bottomStart = H - 300;
     var mainReserve = 190;
     ctx.fillStyle = 'rgba(24,20,15,.88)';
-    var body = fitFont(ctx, d.body, M, y, CW, 12, bottomStart - mainReserve - y - 30, 28, 22, '400 %spx Archivo, sans-serif', 1.42);
+    var body = fitFont(ctx, d.body, M, y, CW, 12, bottomStart - mainReserve - y - 30, 28, 22, '400 %spx YH Sans, sans-serif', 1.42);
     y = body.yAfter + 34;
 
-    ctx.font = '400 26px Anton, sans-serif';
+    ctx.font = '400 26px YH Display, sans-serif';
     var gw = ctx.measureText('ГЛАВНОЕ').width;
     ctx.fillStyle = BLACK;
     ctx.fillRect(M, y, gw + 36, 44);
@@ -1888,19 +1886,19 @@
     y += 44 + 22;
 
     ctx.fillStyle = 'rgba(24,20,15,.92)';
-    var main = fitFont(ctx, d.main, M, y, CW, 3, bottomStart - 20 - y, 27, 21, '700 %spx Archivo, sans-serif', 1.42);
+    var main = fitFont(ctx, d.main, M, y, CW, 3, bottomStart - 20 - y, 27, 21, '700 %spx YH Sans, sans-serif', 1.42);
     y = main.yAfter;
 
     ctx.strokeStyle = 'rgba(24,20,15,.22)'; ctx.lineWidth = 2;
     ctx.beginPath(); ctx.moveTo(M, bottomStart - 22); ctx.lineTo(W - M, bottomStart - 22); ctx.stroke();
 
     ctx.fillStyle = 'rgba(24,20,15,.55)';
-    ctx.font = '700 21px Archivo, sans-serif';
+    ctx.font = '700 21px YH Sans, sans-serif';
     ctx.fillText('ПОЛНЫЙ ГЛОССАРИЙ', M, bottomStart + 42);
     ctx.fillStyle = BLACK;
-    ctx.font = '800 22px Archivo, sans-serif';
+    ctx.font = '800 22px YH Sans, sans-serif';
     ctx.fillText(SITE + '/glossary.html', M, bottomStart + 82);
-    ctx.font = '800 30px Archivo, sans-serif';
+    ctx.font = '800 30px YH Sans, sans-serif';
     ctx.fillText('by YuRich', M, bottomStart + 144);
     var sw = ctx.measureText('by YuRich').width;
     ctx.fillStyle = PINK; ctx.fillRect(M, bottomStart + 160, sw, 6);
@@ -1979,7 +1977,7 @@
   function openShare(termNum){
     if(!TERMS[termNum]) return;
 
-    var wanted = ['400 54px Anton', '800 30px Archivo', '400 28px Archivo', '700 27px Archivo', '800 22px Archivo', '800 15px Archivo'];
+    var wanted = ['400 54px YH Display', '800 30px YH Sans', '400 28px YH Sans', '700 27px YH Sans', '800 22px YH Sans', '800 15px YH Sans'];
     var fontsReady = (document.fonts && document.fonts.load)
       ? Promise.race([Promise.all(wanted.map(function(f){ return document.fonts.load(f).catch(function(){}); })),
                       new Promise(function(res){ setTimeout(res, 1800); })])
