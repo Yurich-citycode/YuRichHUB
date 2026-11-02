@@ -51,35 +51,35 @@
   }
   #readbar i{ display:block; height:100%; width:100%; background:var(--pink); transform-origin:left; transform:scaleX(0); }
 
-  .top{ padding:30px 0 10px; }
+  .top{ padding:32px 0 8px; }
   .wrap{ max-width:1180px; margin:0 auto; padding:0 40px; position:relative; z-index:1; }
   .top-row{ display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:44px; }
-  .logo{ font-size:20px; font-weight:800; text-decoration:none; color:inherit; }
+  .logo{ font-size:20px; font-weight:700; text-decoration:none; color:inherit; }
   .logo span{ color:var(--pink); }
   .backlink{
     font-size:12px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; text-decoration:none;
     color:var(--black); border-bottom:1px solid var(--black); padding-bottom:2px; transition:color .2s, border-color .2s;
   }
   .backlink:hover{ color:var(--pink); border-color:var(--pink); }
-  .head-kicker{ font-size:12px; font-weight:800; letter-spacing:.22em; text-transform:uppercase; color:var(--pink); margin:0 0 14px; }
+  .head-kicker{ font-size:12px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:var(--pink); margin:0 0 16px; }
   h1.head{
     font-family:var(--yh-display); font-weight:400; text-transform:uppercase;
-    font-size:clamp(40px,6.5vw,76px); line-height:.95; letter-spacing:.005em; margin:0 0 18px; max-width:16ch;
+    font-size:clamp(40px,6.5vw,76px); line-height:.95; letter-spacing:.005em; margin:0 0 16px; max-width:16ch;
   }
-  .head-sub{ font-size:15px; line-height:1.65; max-width:62ch; margin:0; color:rgba(24,20,15,.78); }
-  .head-sub b{ font-weight:800; }
+  .head-sub{ font-size:16px; line-height:1.65; max-width:62ch; margin:0; color:rgba(24,20,15,.78); }
+  .head-sub b{ font-weight:700; }
 
-  .layout{ display:grid; grid-template-columns:minmax(0,760px) 230px; gap:70px; align-items:start; margin-top:54px; }
+  .layout{ display:grid; grid-template-columns:minmax(0,760px) 230px; gap:72px; align-items:start; margin-top:56px; }
   .content{ min-width:0; }
 
   .sindex{ position:sticky; top:26px; }
   .sindex .si-title{
-    font-size:10px; font-weight:800; letter-spacing:.22em; text-transform:uppercase;
+    font-size:11px; font-weight:700; letter-spacing:.22em; text-transform:uppercase;
     color:rgba(24,20,15,.45); margin-bottom:14px;
   }
   .sindex a{
     display:flex; align-items:baseline; gap:10px; text-decoration:none; color:rgba(24,20,15,.62);
-    font-size:13px; font-weight:600; padding:8px 0 8px 14px; position:relative;
+    font-size:12px; font-weight:700; padding:8px 0 8px 16px; position:relative;
     border-left:2px solid var(--cream-line); transition:color .2s, border-color .2s, transform .2s;
   }
   .sindex a .si-num{ font-family:var(--yh-display); font-size:12px; letter-spacing:.06em; color:rgba(24,20,15,.4); transition:color .2s; }
@@ -92,15 +92,15 @@
   .sindex a.active{ color:var(--black); border-left-color:var(--pink); transform:translateX(4px); }
   .sindex a.active .si-num{ color:var(--yellow); }
   .sindex a.active::before{ background:var(--pink); border-color:var(--pink); }
-  .sindex a.featured{ font-size:16px; font-weight:800; color:var(--pink); padding-top:16px; transition:color .2s, border-color .2s, transform .2s, text-shadow .25s; }
+  .sindex a.featured{ font-size:16px; font-weight:700; color:var(--pink); padding-top:16px; transition:color .2s, border-color .2s, transform .2s; }
   .sindex a.featured .si-num{ color:var(--pink); font-size:14px; }
   .sindex a.featured.active{ color:var(--black); }
-  .sindex a.featured:hover, .sindex a.featured.active{ text-shadow:0 0 14px rgba(232,55,126,.5); }
+  .sindex a.featured:hover, .sindex a.featured.active{ color:var(--black); }
 
   .chipindex{ display:none; }
 
   section.sec{ scroll-margin-top:90px; margin-bottom:20px; }
-  .sec-head{ margin:74px 0 34px; }
+  .sec-head{ margin:72px 0 32px; }
   section.sec:first-of-type .sec-head{ margin-top:0; }
   .sec-kicker{
     display:inline-flex; align-items:center; gap:10px;
@@ -115,12 +115,12 @@
   .term{
     border:3px solid var(--black); background:var(--cream);
     box-shadow:9px 9px 0 var(--black);
-    padding:30px 30px 28px; margin-bottom:30px; scroll-margin-top:110px;
+    padding:32px 32px 28px; margin-bottom:32px; scroll-margin-top:110px;
   }
   .term.flash{ animation:termFlash 1.6s ease; }
-  keyframes termFlash{ 0%{ background:rgba(232,55,126,.16); } 100%{ background:var(--cream); } }
+  @keyframes termFlash{ 0%{ background:rgba(232,55,126,.16); } 100%{ background:var(--cream); } }
   .t-kicker{
-    font-size:11px; font-weight:800; letter-spacing:.2em; text-transform:uppercase;
+    font-size:11px; font-weight:700; letter-spacing:.2em; text-transform:uppercase;
     color:var(--pink); margin-bottom:10px;
   }
   .t-name{
@@ -128,10 +128,10 @@
     font-size:clamp(24px,3vw,34px); line-height:1; letter-spacing:.01em; margin:0 0 14px;
   }
   .t-drop{
-    font-size:17.5px; font-weight:800; line-height:1.4; color:var(--pink);
-    margin:0 0 14px; padding-left:14px; border-left:4px solid var(--pink);
+    font-size:16px; font-weight:700; line-height:1.4; color:var(--pink);
+    margin:0 0 16px; padding-left:16px; border-left:4px solid var(--pink);
   }
-  .t-body{ font-size:15.5px; line-height:1.75; margin:0 0 20px; color:rgba(24,20,15,.86); }
+  .t-body{ font-size:16px; line-height:1.75; margin:0 0 20px; color:rgba(24,20,15,.86); }
   .xlink{
     color:var(--pink); font-weight:700; text-decoration:none;
     border-bottom:1.5px dashed var(--pink); padding-bottom:1px;
@@ -141,59 +141,60 @@
 
   .t-flow{ display:flex; flex-wrap:wrap; gap:8px; margin:0 0 20px; }
   .t-flow span{
-    font-family:var(--yh-display); font-size:13px; letter-spacing:.05em; text-transform:uppercase;
-    border:2px solid var(--black); padding:7px 12px; background:var(--yellow);
+    font-family:var(--yh-display); font-size:12px; letter-spacing:.05em; text-transform:uppercase;
+    border:2px solid var(--black); padding:8px 12px; background:var(--yellow);
   }
-  .t-flow em{ font-style:normal; align-self:center; font-weight:900; }
+  .t-flow em{ font-style:normal; align-self:center; font-weight:700; }
 
   .t-main{
-    background:var(--black); color:var(--cream); padding:20px 22px 22px; border-radius:6px;
+    background:var(--black); color:var(--cream); padding:20px 24px 24px; border-radius:6px;
     position:relative;
   }
-  .t-main-head{ display:flex; align-items:center; justify-content:space-between; gap:14px; margin-bottom:10px; }
+  .t-main-head{ display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:8px; }
   .t-main-head .mlabel{
-    font-family:var(--yh-display); font-size:15px; letter-spacing:.14em; color:var(--yellow);
+    font-family:var(--yh-display); font-size:14px; letter-spacing:.14em; color:var(--yellow);
   }
   .share-btn{
-    font-family:var(--yh-sans); font-size:11px; font-weight:800; letter-spacing:.06em; text-transform:uppercase;
+    font-family:var(--yh-sans); font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
     color:var(--cream); background:transparent; border:1.5px solid rgba(241,233,216,.4); border-radius:100px;
     padding:7px 14px; cursor:pointer; transition:background .2s, border-color .2s, color .2s, transform .15s;
     white-space:nowrap;
   }
   .share-btn:hover{ background:var(--pink); border-color:var(--pink); color:var(--black); transform:translateY(-1px); }
   .share-btn:active{ transform:translateY(0); }
-  .t-main p{ margin:0; font-size:15px; line-height:1.65; }
+  .t-main p{ margin:0; font-size:16px; line-height:1.65; }
 
-  .comic-plate{ margin:10px 0 26px; text-align:center; }
+  .comic-plate{ margin:8px 0 24px; text-align:center; }
   .cp-kicker{
-    display:inline-block; font-size:11px; font-weight:800; letter-spacing:.2em; text-transform:uppercase;
+    display:inline-block; font-size:11px; font-weight:700; letter-spacing:.2em; text-transform:uppercase;
     color:var(--pink); margin-bottom:10px;
   }
   .cp-caption{
     font-family:var(--yh-display); font-size:clamp(20px,2.6vw,28px); text-transform:uppercase;
-    letter-spacing:.02em; margin:0 0 22px;
+    letter-spacing:.02em; margin:0 0 24px;
   }
   .cp-frame{
     display:inline-block; max-width:640px; width:100%;
     border:3px solid var(--black); box-shadow:10px 10px 0 var(--black); background:var(--black);
   }
   .cp-frame img{ display:block; width:100%; height:auto; }
+  .cp-frame.no-img img{ display:none; }
   .cp-frame.no-img{ display:grid; place-items:center; min-height:300px; background:repeating-linear-gradient(45deg, rgba(232,55,126,.14) 0 14px, rgba(24,20,15,.85) 14px 28px); }
   .cp-frame.no-img::after{
-    content:attr(data-hint); font-size:12px; font-weight:800; letter-spacing:.14em; text-transform:uppercase;
+    content:attr(data-hint); font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
     color:var(--cream); background:var(--black); padding:10px 18px; border:1.5px dashed var(--cream);
   }
 
-  .foot{ margin-top:90px; border-top:3px solid var(--black); padding-top:44px; }
+  .foot{ margin-top:88px; border-top:3px solid var(--black); padding-top:44px; }
   .foot h3{
     font-family:var(--yh-display); font-weight:400; text-transform:uppercase;
-    font-size:clamp(26px,3.6vw,42px); line-height:1; margin:0 0 14px; max-width:20ch;
+    font-size:clamp(26px,3.6vw,42px); line-height:1; margin:0 0 16px; max-width:20ch;
   }
-  .foot .f-sub{ font-size:15px; line-height:1.65; color:rgba(24,20,15,.75); max-width:56ch; margin:0 0 26px; }
-  .f-btns{ display:flex; gap:12px; flex-wrap:wrap; margin-bottom:30px; }
+  .foot .f-sub{ font-size:16px; line-height:1.65; color:rgba(24,20,15,.75); max-width:56ch; margin:0 0 24px; }
+  .f-btns{ display:flex; gap:12px; flex-wrap:wrap; margin-bottom:32px; }
   .fbtn{
     display:inline-flex; align-items:center; gap:10px; text-decoration:none;
-    font-size:13px; font-weight:800; letter-spacing:.03em; text-transform:uppercase;
+    font-size:12px; font-weight:700; letter-spacing:.03em; text-transform:uppercase;
     padding:14px 24px; border:3px solid var(--black); box-shadow:7px 7px 0 var(--black);
     background:var(--pink); color:var(--cream);
     transition:transform .15s ease, box-shadow .15s ease;
@@ -215,16 +216,16 @@
   }
   .modal-close{
     position:absolute; top:10px; right:10px; z-index:2;
-    width:38px; height:38px; border-radius:50%; border:2px solid var(--black);
-    background:var(--yellow); font-size:17px; font-weight:900; cursor:pointer; line-height:1;
+    width:40px; height:40px; border-radius:50%; border:2px solid var(--black);
+    background:var(--yellow); font-size:16px; font-weight:700; cursor:pointer; line-height:1;
     transition:transform .15s ease;
   }
   .modal-close:hover{ transform:rotate(90deg); }
   .modal-img{ display:block; width:100%; height:auto; }
-  .modal-acts{ display:flex; gap:10px; padding:16px; flex-wrap:wrap; }
+  .modal-acts{ display:flex; gap:12px; padding:16px; flex-wrap:wrap; }
   .mact{
     flex:1; min-width:140px; text-align:center; text-decoration:none;
-    font-size:12px; font-weight:800; letter-spacing:.05em; text-transform:uppercase;
+    font-size:12px; font-weight:700; letter-spacing:.05em; text-transform:uppercase;
     border:3px solid var(--black); box-shadow:5px 5px 0 var(--black);
     background:var(--black); color:var(--cream); padding:13px 16px;
     transition:transform .15s ease, box-shadow .15s ease;
@@ -232,21 +233,21 @@
   a.mact:hover, button.mact:hover{ transform:translate(-2px,-2px); box-shadow:7px 7px 0 var(--black); }
   .mact.alt{ background:var(--cream); color:var(--black); }
   .mact:active{ transform:translate(2px,2px); box-shadow:2px 2px 0 var(--black); }
-  #toast{ position:fixed; left:50%; bottom:26px; transform:translateX(-50%) translateY(16px); z-index:120;
-    background:var(--black); color:var(--cream); font-size:13px; font-weight:700; letter-spacing:.02em;
+  #toast{ position:fixed; left:50%; bottom:24px; transform:translateX(-50%) translateY(16px); z-index:120;
+    background:var(--black); color:var(--cream); font-size:12px; font-weight:700; letter-spacing:.02em;
     padding:12px 20px; border-radius:100px; opacity:0; pointer-events:none; transition:opacity .3s ease, transform .3s ease;
     max-width:88vw; text-align:center; }
   #toast.show{ opacity:1; transform:translateX(-50%) translateY(0); }
   button.mact{ cursor:pointer; font-family:var(--yh-sans); }
 
-  .routes{ margin:30px 0 0; }
+  .routes{ margin:32px 0 0; }
   .rt-label{
-    font-size:11px; font-weight:800; letter-spacing:.22em; text-transform:uppercase;
+    font-size:11px; font-weight:700; letter-spacing:.22em; text-transform:uppercase;
     color:rgba(24,20,15,.45); margin-bottom:12px;
   }
-  .rt-chips{ display:flex; flex-wrap:wrap; gap:10px; }
+  .rt-chips{ display:flex; flex-wrap:wrap; gap:12px; }
   .rt-chip{
-    font-family:var(--yh-sans); font-size:13px; font-weight:800; letter-spacing:.03em;
+    font-family:var(--yh-sans); font-size:12px; font-weight:700; letter-spacing:.03em;
     text-transform:uppercase; color:var(--black); background:var(--cream);
     border:3px solid var(--black); padding:12px 20px; cursor:pointer;
     box-shadow:5px 5px 0 var(--black);
@@ -256,14 +257,14 @@
   .rt-chip:active{ transform:translate(2px,2px); box-shadow:2px 2px 0 var(--black); }
   .rt-chip[aria-pressed="true"]{ background:var(--black); color:var(--cream); box-shadow:5px 5px 0 var(--pink); }
   .rt-hint{
-    font-size:12px; font-weight:800; letter-spacing:.06em; text-transform:uppercase;
+    font-size:12px; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
     color:rgba(24,20,15,.6); margin:14px 0 0;
   }
   .rt-hint b{ color:var(--pink); }
   .rt-extra{ display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
   .rt-extra[hidden]{ display:none; }
   .rt-sub{
-    font-family:var(--yh-sans); font-size:11px; font-weight:800; letter-spacing:.04em;
+    font-family:var(--yh-sans); font-size:11px; font-weight:700; letter-spacing:.04em;
     text-transform:uppercase; color:var(--black); background:transparent;
     border:2px solid var(--cream-line); padding:8px 13px; cursor:pointer;
     transition:border-color .2s, background .2s, color .2s;
@@ -287,16 +288,16 @@
 
   .t-body.qs{ list-style:none; counter-reset:qs; padding:0; }
   .t-body.qs li{
-    position:relative; padding-left:46px; margin-bottom:12px; font-weight:600; color:var(--black);
+    position:relative; padding-left:48px; margin-bottom:12px; font-weight:700; color:var(--black);
   }
   .t-body.qs li::before{
     counter-increment:qs; content:counter(qs);
-    position:absolute; left:0; top:1px; width:30px; height:30px; display:grid; place-items:center;
-    font-family:var(--yh-display); font-size:15px; line-height:1;
+    position:absolute; left:0; top:1px; width:32px; height:32px; display:grid; place-items:center;
+    font-family:var(--yh-display); font-size:14px; line-height:1;
     background:var(--black); color:var(--yellow);
   }
 
-  media (max-width:1080px){
+  @media (max-width:1080px){
     .layout{ grid-template-columns:1fr; gap:0; }
     .sindex{ display:none; }
     .chipindex{
@@ -313,20 +314,20 @@
     .chipindex a .si-num{ font-family:var(--yh-display); margin-right:7px; color:var(--pink); }
     .chipindex a.active{ background:var(--black); color:var(--cream); }
     .chipindex a.active .si-num{ color:var(--yellow); }
-    .chipindex a.featured{ font-size:15px; font-weight:800; color:var(--pink); border-color:var(--pink); }
+    .chipindex a.featured{ font-size:14px; font-weight:700; color:var(--pink); border-color:var(--pink); }
     .chipindex a.featured .si-num{ color:var(--pink); }
     .chipindex a.featured.active{ color:var(--cream); }
-    .sec-head{ margin-top:54px; }
+    .sec-head{ margin-top:56px; }
   }
-  media (max-width:720px){
+  @media (max-width:720px){
     .share-btn{ min-height:42px; padding:10px 18px; font-size:12px; }
     .wrap{ padding:0 20px; }
-    .term{ padding:22px 18px 20px; box-shadow:6px 6px 0 var(--black); }
+    .term{ padding:24px 20px; box-shadow:6px 6px 0 var(--black); }
     .t-drop{ font-size:16px; }
     .cp-frame{ box-shadow:7px 7px 0 var(--black); }
   }
 
-  media (prefers-reduced-motion:reduce){
+  @media (prefers-reduced-motion:reduce){
     html{ scroll-behavior:auto; }
     .term{ animation:none !important; }
     .xlink, .share-btn, .fbtn, .sindex a, .sindex a.featured, .rt-chip, .rt-sub, body.routes-on .term{ transition:none; }
@@ -481,7 +482,7 @@
         <div class="comic-plate">
           <div class="cp-kicker">Раздел 01 · в двух словах</div>
           <p class="cp-caption">почему «рынок вырос до $30 млрд» — не вся правда</p>
-          <div class="cp-frame" data-hint="comics1.jpg — сюда вставить фото"><img src="comics1.webp" alt="Комикс: Total Value против TVL" onerror="this.style.display='none';this.parentNode.style.display='none'" loading="lazy" decoding="async" width="1024" height="1536"></div>
+          <div class="cp-frame" data-hint="comics1.jpg — сюда вставить фото"><img src="comics1.webp" alt="Комикс: Total Value против TVL" onerror="this.style.display='none';this.parentNode.classList.add('no-img')" loading="lazy" decoding="async" width="1024" height="1536"></div>
         </div>
       </section>
 
@@ -538,7 +539,7 @@
         <div class="comic-plate">
           <div class="cp-kicker">Раздел 02 · в двух словах</div>
           <p class="cp-caption">три токена, три разных права — не путай</p>
-          <div class="cp-frame" data-hint="comics2.jpg — сюда вставить фото"><img src="comics2.webp" alt="Комикс: три типа токенизированной акции" onerror="this.style.display='none';this.parentNode.style.display='none'" loading="lazy" decoding="async" width="1280" height="853"></div>
+          <div class="cp-frame" data-hint="comics2.jpg — сюда вставить фото"><img src="comics2.webp" alt="Комикс: три типа токенизированной акции" onerror="this.style.display='none';this.parentNode.classList.add('no-img')" loading="lazy" decoding="async" width="1280" height="853"></div>
         </div>
       </section>
 
@@ -595,7 +596,7 @@
         <div class="comic-plate">
           <div class="cp-kicker">Раздел 03 · в двух словах</div>
           <p class="cp-caption">«продам когда захочу» — миф</p>
-          <div class="cp-frame" data-hint="comics3.jpg — сюда вставить фото"><img src="comics3.webp" alt="Комикс: мираж ликвидности" onerror="this.style.display='none';this.parentNode.style.display='none'" loading="lazy" decoding="async" width="1280" height="853"></div>
+          <div class="cp-frame" data-hint="comics3.jpg — сюда вставить фото"><img src="comics3.webp" alt="Комикс: мираж ликвидности" onerror="this.style.display='none';this.parentNode.classList.add('no-img')" loading="lazy" decoding="async" width="1280" height="853"></div>
         </div>
       </section>
 
@@ -652,7 +653,7 @@
         <div class="comic-plate">
           <div class="cp-kicker">Раздел 04 · в двух словах</div>
           <p class="cp-caption">доходность настоящая — просто не мгновенная</p>
-          <div class="cp-frame" data-hint="comics4.jpg — сюда вставить фото"><img src="comics4.webp" alt="Комикс: доходность трежерис едет с задержкой" onerror="this.style.display='none';this.parentNode.style.display='none'" loading="lazy" decoding="async" width="1280" height="853"></div>
+          <div class="cp-frame" data-hint="comics4.jpg — сюда вставить фото"><img src="comics4.webp" alt="Комикс: доходность трежерис едет с задержкой" onerror="this.style.display='none';this.parentNode.classList.add('no-img')" loading="lazy" decoding="async" width="1280" height="853"></div>
         </div>
       </section>
 
@@ -709,7 +710,7 @@
         <div class="comic-plate">
           <div class="cp-kicker">Раздел 05 · в двух словах</div>
           <p class="cp-caption">12% на баннере редко доезжают до кошелька целиком</p>
-          <div class="cp-frame" data-hint="comics5.jpg — сюда вставить фото"><img src="comics5.webp" alt="Комикс: заявленная против реализованной доходности" onerror="this.style.display='none';this.parentNode.style.display='none'" loading="lazy" decoding="async" width="1280" height="853"></div>
+          <div class="cp-frame" data-hint="comics5.jpg — сюда вставить фото"><img src="comics5.webp" alt="Комикс: заявленная против реализованной доходности" onerror="this.style.display='none';this.parentNode.classList.add('no-img')" loading="lazy" decoding="async" width="1280" height="853"></div>
         </div>
       </section>
 
@@ -766,7 +767,7 @@
         <div class="comic-plate">
           <div class="cp-kicker">Раздел 06 · в двух словах</div>
           <p class="cp-caption">ставка выше рынка — это не подарок</p>
-          <div class="cp-frame" data-hint="comics6.jpg — сюда вставить фото"><img src="comics6.webp" alt="Комикс: слишком хорошая доходность" onerror="this.style.display='none';this.parentNode.style.display='none'" loading="lazy" decoding="async" width="1280" height="853"></div>
+          <div class="cp-frame" data-hint="comics6.jpg — сюда вставить фото"><img src="comics6.webp" alt="Комикс: слишком хорошая доходность" onerror="this.style.display='none';this.parentNode.classList.add('no-img')" loading="lazy" decoding="async" width="1280" height="853"></div>
         </div>
       </section>
 
@@ -825,7 +826,7 @@
         <div class="comic-plate">
           <div class="cp-kicker">Раздел 07 · в двух словах</div>
           <p class="cp-caption">токен не умеет чинить крышу</p>
-          <div class="cp-frame" data-hint="comics7.jpg — сюда вставить фото"><img src="comics7.jpg" alt="Комикс: токен не чинит крышу" onerror="this.style.display='none';this.parentNode.style.display='none'" loading="lazy" decoding="async"></div>
+          <div class="cp-frame no-img" data-hint="comics7.jpg — сюда вставить фото"><img src="comics7.jpg" alt="Комикс: токен не чинит крышу" onerror="this.style.display='none';this.parentNode.classList.add('no-img')" loading="lazy" decoding="async"></div>
         </div>
       </section>
 
@@ -893,7 +894,7 @@
         <div class="comic-plate">
           <div class="cp-kicker">Раздел 08 · в двух словах</div>
           <p class="cp-caption">оракул не проверяет правду — он её пересказывает</p>
-          <div class="cp-frame" data-hint="comics8.jpg — сюда вставить фото"><img src="comics8.jpg" alt="Комикс: оракул пересказывает, а не проверяет" onerror="this.style.display='none';this.parentNode.style.display='none'" loading="lazy" decoding="async"></div>
+          <div class="cp-frame no-img" data-hint="comics8.jpg — сюда вставить фото"><img src="comics8.jpg" alt="Комикс: оракул пересказывает, а не проверяет" onerror="this.style.display='none';this.parentNode.classList.add('no-img')" loading="lazy" decoding="async"></div>
         </div>
       </section>
 
@@ -939,7 +940,7 @@
         <div class="comic-plate">
           <div class="cp-kicker">Раздел 09 · в двух словах</div>
           <p class="cp-caption">слиток ваш, только если он выделен именно под вас</p>
-          <div class="cp-frame" data-hint="comics9.jpg — сюда вставить фото"><img src="comics9.jpg" alt="Комикс: аллокированный против неаллокированного металла" onerror="this.style.display='none';this.parentNode.style.display='none'" loading="lazy" decoding="async"></div>
+          <div class="cp-frame no-img" data-hint="comics9.jpg — сюда вставить фото"><img src="comics9.jpg" alt="Комикс: аллокированный против неаллокированного металла" onerror="this.style.display='none';this.parentNode.classList.add('no-img')" loading="lazy" decoding="async"></div>
         </div>
       </section>
 
@@ -996,7 +997,7 @@
         <div class="comic-plate">
           <div class="cp-kicker">Раздел 10 · в двух словах</div>
           <p class="cp-caption">имя управляющего и имя платформы — не всегда один человек</p>
-          <div class="cp-frame" data-hint="comics10.jpg — сюда вставить фото"><img src="comics10.jpg" alt="Комикс: кто ведёт реестр держателей фонда" onerror="this.style.display='none';this.parentNode.style.display='none'" loading="lazy" decoding="async"></div>
+          <div class="cp-frame no-img" data-hint="comics10.jpg — сюда вставить фото"><img src="comics10.jpg" alt="Комикс: кто ведёт реестр держателей фонда" onerror="this.style.display='none';this.parentNode.classList.add('no-img')" loading="lazy" decoding="async"></div>
         </div>
       </section>
 
@@ -1053,7 +1054,7 @@
         <div class="comic-plate">
           <div class="cp-kicker">Раздел 11 · в двух словах</div>
           <p class="cp-caption">цифра без внешнего проверяющего — это слово эмитента</p>
-          <div class="cp-frame" data-hint="comics11.jpg — сюда вставить фото"><img src="comics11.jpg" alt="Комикс: кто проверил цифру" onerror="this.style.display='none';this.parentNode.style.display='none'" loading="lazy" decoding="async"></div>
+          <div class="cp-frame no-img" data-hint="comics11.jpg — сюда вставить фото"><img src="comics11.jpg" alt="Комикс: кто проверил цифру" onerror="this.style.display='none';this.parentNode.classList.add('no-img')" loading="lazy" decoding="async"></div>
         </div>
       </section>
 
@@ -1110,7 +1111,7 @@
         <div class="comic-plate">
           <div class="cp-kicker">Раздел 12 · в двух словах</div>
           <p class="cp-caption">стейблкоин — кассир рынка RWA, а не его витрина</p>
-          <div class="cp-frame" data-hint="comics12.jpg — сюда вставить фото"><img src="comics12.jpg" alt="Комикс: стейблкоин как расчётный слой" onerror="this.style.display='none';this.parentNode.style.display='none'" loading="lazy" decoding="async"></div>
+          <div class="cp-frame no-img" data-hint="comics12.jpg — сюда вставить фото"><img src="comics12.jpg" alt="Комикс: стейблкоин как расчётный слой" onerror="this.style.display='none';this.parentNode.classList.add('no-img')" loading="lazy" decoding="async"></div>
         </div>
       </section>
 
@@ -1396,7 +1397,7 @@
         <div class="comic-plate">
           <div class="cp-kicker">Раздел 13 · в двух словах</div>
           <p class="cp-caption">регулятор защищает от мошенничества, а не от дефолта</p>
-          <div class="cp-frame" data-hint="comics13.jpg — сюда вставить фото"><img src="comics13.jpg" alt="Комикс: что регулирование ЦФА защищает, а что нет" onerror="this.style.display='none';this.parentNode.style.display='none'" loading="lazy" decoding="async"></div>
+          <div class="cp-frame no-img" data-hint="comics13.jpg — сюда вставить фото"><img src="comics13.jpg" alt="Комикс: что регулирование ЦФА защищает, а что нет" onerror="this.style.display='none';this.parentNode.classList.add('no-img')" loading="lazy" decoding="async"></div>
         </div>
       </section>
 

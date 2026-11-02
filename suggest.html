@@ -16,7 +16,7 @@
     --card:#12140E;          /* карточки / поля ввода */
     --panel:#0E100B;         /* панель формы — на тон темнее карточки, чтобы поля читались */
     --lime:#D7FF3D;          /* основной акцент */
-    --blue:#2E62FF;          /* второй акцент */
+    --gold:#C8A24A;          /* свет/детали */
     --ink:#F2F5EC;           /* текст */
     --muted:rgba(242,245,236,.55);
     --dim:rgba(242,245,236,.34);
@@ -60,21 +60,21 @@
     font-family:var(--font-mono);
     text-transform:uppercase;
     letter-spacing:.14em;
-    font-size:10.5px;
+    font-size:11px;
     font-weight:500;
   }
 
   .wrap{
     position:relative; z-index:1;
     max-width:620px; margin:0 auto;
-    padding:26px 20px 54px;
+    padding:24px 20px 56px;
   }
 
   /* ============ ШАПКА ============ */
   .top{
     display:flex; align-items:center; justify-content:space-between;
     gap:12px; flex-wrap:wrap;
-    padding-bottom:16px; margin-bottom:26px;
+    padding-bottom:16px; margin-bottom:24px;
     border-bottom:1px solid var(--line-soft);
   }
   /* бирка: лаймовый прямоугольник + чёрный моно-текст */
@@ -82,15 +82,14 @@
     display:inline-block;
     background:var(--lime); color:#0A0A0A;
     font-family:var(--font-mono); font-weight:700;
-    font-size:10.5px; letter-spacing:.12em; text-transform:uppercase;
+    font-size:11px; letter-spacing:.12em; text-transform:uppercase;
     padding:6px 10px; line-height:1.2;
     transform:rotate(-1.6deg);
-    box-shadow:0 0 22px rgba(215,255,61,.22);
   }
   .top .coord{ color:var(--dim); font-variant-numeric:tabular-nums; letter-spacing:.1em; }
   .brand{
     display:flex; align-items:center; gap:10px;
-    margin-bottom:22px;
+    margin-bottom:24px;
   }
   .brand .sq{ width:14px; height:14px; background:var(--lime); flex:0 0 auto; }
   .brand .name{
@@ -111,13 +110,12 @@
   }
   h1 em{
     font-style:normal; color:var(--lime);
-    text-shadow:4px 4px 0 rgba(46,98,255,.55);
   }
   .lead{
-    font-size:15.5px; line-height:1.75;
+    font-size:16px; line-height:1.75;
     color:rgba(242,245,236,.78);
     max-width:50ch;
-    margin:0 0 30px;
+    margin:0 0 32px;
   }
   .lead b{
     color:var(--ink); font-weight:700;
@@ -127,7 +125,7 @@
   /* ============ НУМЕРАЦИЯ СЕКЦИЙ ============ */
   .sec-head{
     display:flex; align-items:center; gap:12px;
-    margin:0 0 14px;
+    margin:0 0 16px;
   }
   .sec-head .num{
     color:var(--lime); font-weight:700; letter-spacing:.16em;
@@ -136,27 +134,27 @@
   .sec-head .rule{ flex:1 1 auto; height:1px; background:var(--line); }
   .sec-head .meta{ color:var(--dim); letter-spacing:.1em; white-space:nowrap; }
   /* нумерация секции внутри карточки (экран успеха) */
-  .sec-head.in-card{ margin:-4px 0 22px; }
+  .sec-head.in-card{ margin:-4px 0 24px; }
 
   /* ============ ФОРМА ============ */
   form{
     position:relative;
     background:var(--panel);
     border:1px solid var(--line);
-    padding:22px 18px 20px;
+    padding:24px 20px;
   }
   /* уголки-метки как в City Code */
   form::before,form::after{
     content:""; position:absolute; width:14px; height:14px; pointer-events:none;
   }
   form::before{ top:-1px; left:-1px; border-top:2px solid var(--lime); border-left:2px solid var(--lime); }
-  form::after{ bottom:-1px; right:-1px; border-bottom:2px solid var(--blue); border-right:2px solid var(--blue); }
+  form::after{ bottom:-1px; right:-1px; border-bottom:2px solid var(--gold); border-right:2px solid var(--gold); }
 
-  .f{ margin-bottom:18px; }
+  .f{ margin-bottom:16px; }
   .f label{
     display:flex; align-items:baseline; gap:8px; flex-wrap:wrap;
     font-family:var(--font-mono);
-    font-size:10.5px; font-weight:500;
+    font-size:11px; font-weight:500;
     text-transform:uppercase; letter-spacing:.14em;
     color:var(--ink);
     margin-bottom:8px;
@@ -173,7 +171,7 @@
     background:var(--card);
     border:1px solid var(--line-soft);
     border-radius:0;
-    padding:13px 13px;
+    padding:12px 14px;
     font:500 16px/1.35 var(--font-sans);
     color:#FFFFFF;
     accent-color:var(--lime);
@@ -187,7 +185,7 @@
     outline:none;
     border-color:var(--lime);
     background:#151810;
-    box-shadow:0 0 0 1px rgba(215,255,61,.35), 0 0 20px rgba(215,255,61,.18);
+    box-shadow:0 0 0 1px rgba(215,255,61,.5);
   }
   .f select{
     color:#FFFFFF;
@@ -201,23 +199,22 @@
     width:auto; accent-color:var(--lime);
   }
 
-  .row{ display:flex; gap:14px; }
+  .row{ display:flex; gap:16px; }
   .row .f{ flex:1 1 0; min-width:0; }
 
-  .hint{ color:var(--dim); font-size:12px; line-height:1.5; margin-top:7px; }
+  .hint{ color:var(--dim); font-size:12px; line-height:1.5; margin-top:8px; }
 
   .submit{
     width:100%;
-    margin-top:6px;
+    margin-top:8px;
     display:flex; align-items:center; justify-content:center; gap:12px;
     background:var(--lime);
     border:1px solid var(--lime);
     color:#0A0A0A;
-    font:800 15px/1 var(--font-sans);
+    font:700 14px/1 var(--font-sans);
     text-transform:uppercase; letter-spacing:.1em;
-    padding:18px 18px;
+    padding:16px 20px;
     cursor:pointer;
-    box-shadow:0 0 0 rgba(215,255,61,0);
     transition:background-color .18s ease,border-color .18s ease,color .18s ease,box-shadow .18s ease,transform .1s ease;
   }
   /* стрелка — псевдоэлемент: JS меняет только текст кнопки, она остаётся на месте */
@@ -227,15 +224,15 @@
     transition:transform .18s ease;
   }
   .submit:hover{
-    background:var(--blue); border-color:var(--blue); color:#FFFFFF;
-    box-shadow:0 12px 34px rgba(46,98,255,.40);
+    background:var(--lime); border-color:var(--lime); color:#0A0A0A;
+    box-shadow:4px 4px 0 rgba(242,245,236,.20); transform:translate(-2px,-2px);
   }
   .submit:hover::after{ transform:translateX(4px); }
-  .submit:active{ transform:translateY(1px); box-shadow:0 4px 14px rgba(46,98,255,.3); }
+  .submit:active{ transform:translateY(1px); box-shadow:none; }
   .submit:disabled{ opacity:.5; cursor:progress; box-shadow:none; }
 
   .submit-meta{
-    display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;
+    display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
     margin-top:12px; color:var(--dim); letter-spacing:.12em;
   }
   .submit-meta .ok{ color:var(--lime); }
@@ -246,8 +243,7 @@
     position:relative;
     background:var(--card);
     border:1px solid var(--lime);
-    box-shadow:0 0 46px rgba(215,255,61,.12);
-    padding:30px 20px 24px;
+    padding:32px 24px 24px;
     text-align:center;
   }
   .success .mark{
@@ -255,9 +251,8 @@
     width:64px; height:64px;
     border:1px solid var(--lime); border-radius:50%;
     background:var(--lime); color:#0A0A0A;
-    font-size:30px; font-weight:800;
+    font-size:30px; font-weight:700;
     margin-bottom:16px;
-    box-shadow:0 0 30px rgba(215,255,61,.35);
   }
   .success h2{
     font-family:var(--font-display);
@@ -268,32 +263,31 @@
   }
   .success .status{
     display:inline-block; color:var(--lime);
-    border:1px solid var(--line); padding:5px 10px;
-    margin-bottom:14px; letter-spacing:.16em;
+    border:1px solid var(--line); padding:6px 12px;
+    margin-bottom:16px; letter-spacing:.16em;
   }
   .success p{
-    font-size:14.5px; line-height:1.7; color:var(--muted);
+    font-size:14px; line-height:1.7; color:var(--muted);
     margin:0 auto 20px; max-width:40ch;
   }
   .success .again{
     width:100%;
     background:transparent; border:1px solid var(--line);
     color:var(--lime);
-    font-family:var(--font-mono); font-size:11.5px; font-weight:700;
+    font-family:var(--font-mono); font-size:12px; font-weight:700;
     text-transform:uppercase; letter-spacing:.14em;
-    padding:15px 16px; cursor:pointer;
+    padding:16px; cursor:pointer;
     transition:background-color .18s ease,border-color .18s ease,color .18s ease;
   }
-  .success .again:hover{ background:var(--blue); border-color:var(--blue); color:#FFFFFF; }
+  .success .again:hover{ background:rgba(242,245,236,.06); border-color:rgba(242,245,236,.35); color:var(--lime); }
 
   /* ============ РЕЗЕРВНЫЙ РЕЖИМ (скопировать текст в бота) ============ */
   .errorbox{
     display:none;
-    margin-top:18px;
+    margin-top:16px;
     background:var(--card);
-    border:1px solid rgba(46,98,255,.5);
-    box-shadow:0 0 34px rgba(46,98,255,.12);
-    padding:20px 18px;
+    border:1px solid var(--line-soft);
+    padding:20px;
   }
   .errorbox h3{
     font-family:var(--font-display);
@@ -302,13 +296,13 @@
     margin:0 0 6px;
   }
   .errorbox .badge{
-    display:inline-block; color:#9FB4FF;
-    border:1px solid rgba(46,98,255,.55); padding:4px 9px;
+    display:inline-block; color:var(--dim);
+    border:1px solid var(--line-soft); padding:4px 8px;
     margin-bottom:12px; letter-spacing:.16em;
   }
   .errorbox p{
-    font-size:13.5px; line-height:1.7; color:var(--muted);
-    margin:0 0 14px;
+    font-size:14px; line-height:1.7; color:var(--muted);
+    margin:0 0 16px;
   }
   .errorbox p a{ color:var(--lime); text-decoration:none; border-bottom:1px solid var(--line); }
   .errorbox p a:hover{ border-color:var(--lime); }
@@ -318,28 +312,28 @@
     border:1px solid var(--line-soft);
     border-radius:0;
     color:var(--ink);
-    font:400 13.5px/1.6 var(--font-mono);
+    font:400 13px/1.6 var(--font-mono);
     padding:12px; resize:vertical;
   }
   .errorbox textarea:focus{
     outline:none; border-color:var(--lime);
-    box-shadow:0 0 0 1px rgba(215,255,61,.3), 0 0 18px rgba(215,255,61,.15);
+    box-shadow:0 0 0 1px rgba(215,255,61,.5);
   }
   .errorbox .copybtn{
     width:100%; margin-top:12px;
     background:transparent; border:1px solid var(--lime);
     color:var(--lime);
-    font-family:var(--font-mono); font-size:11.5px; font-weight:700;
+    font-family:var(--font-mono); font-size:12px; font-weight:700;
     text-transform:uppercase; letter-spacing:.14em;
-    padding:15px 16px; cursor:pointer;
+    padding:16px; cursor:pointer;
     transition:background-color .18s ease,border-color .18s ease,color .18s ease;
   }
-  .errorbox .copybtn:hover{ background:var(--blue); border-color:var(--blue); color:#FFFFFF; }
+  .errorbox .copybtn:hover{ background:rgba(242,245,236,.06); border-color:rgba(242,245,236,.35); color:var(--lime); }
 
   /* ============ ФУТЕР ============ */
   .foot{
-    margin-top:26px;
-    display:flex; flex-wrap:wrap; gap:10px;
+    margin-top:24px;
+    display:flex; flex-wrap:wrap; gap:12px;
   }
   .foot a{
     flex:1 1 auto; text-align:center;
@@ -347,43 +341,43 @@
     letter-spacing:.12em; text-transform:uppercase;
     color:var(--ink); text-decoration:none;
     border:1px solid var(--line);
-    padding:14px 14px;
+    padding:14px 16px;
     transition:color .18s ease,border-color .18s ease,background-color .18s ease,transform .15s ease;
   }
   .foot a:hover{ color:var(--lime); border-color:var(--lime); transform:translateY(-2px); }
   .foot a.primary{
     background:var(--lime); border-color:var(--lime); color:#0A0A0A;
   }
-  .foot a.primary:hover{ background:var(--blue); border-color:var(--blue); color:#FFFFFF; }
+  .foot a.primary:hover{ background:var(--lime); border-color:var(--lime); color:#0A0A0A; box-shadow:4px 4px 0 rgba(242,245,236,.20); }
 
   .note{
     margin-top:20px; color:var(--muted);
-    font-size:13px; line-height:1.7;
+    font-size:14px; line-height:1.7;
   }
   .sysline{
-    margin-top:26px; padding-top:14px;
+    margin-top:24px; padding-top:16px;
     border-top:1px solid var(--line-soft);
-    display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;
+    display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
     color:var(--dim); letter-spacing:.14em;
   }
 
   /* ============ МОБИЛЬНАЯ АДАПТИВНОСТЬ ============ */
   @media (max-width:560px){
-    .wrap{ padding:20px 14px 44px; }
+    .wrap{ padding:20px 16px 48px; }
     .row{ display:block; }
     .row .f{ width:100%; }
-    form{ padding:18px 14px 18px; }
+    form{ padding:20px 16px; }
     .top .coord{ display:none; }
     .brand{ margin-bottom:18px; }
-    .lead{ font-size:15px; }
+    .lead{ font-size:16px; }
     .f input,.f select,.f textarea{ font-size:16px; padding:14px 12px; }
-    .submit{ padding:18px 14px; font-size:14px; letter-spacing:.08em; }
+    .submit{ padding:16px; font-size:14px; letter-spacing:.08em; }
     .foot a{ flex:1 1 100%; }
     .sec-head .meta{ display:none; }
   }
   @media (max-width:360px){
     h1{ font-size:38px; }
-    .tag{ font-size:9.5px; letter-spacing:.08em; }
+    .tag{ font-size:10px; letter-spacing:.08em; }
   }
   @media (prefers-reduced-motion:reduce){
     html{ scroll-behavior:auto; }
