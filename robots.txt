@@ -1,0 +1,26 @@
+User-agent: *
+Allow: /
+
+# AI-поиск (цитируемость в поисках ИИ) — разрешено
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: Claude-SearchBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+
+# Обучающие боты — запрещено (контент защищён)
+User-agent: GPTBot
+Disallow: /
+User-agent: ClaudeBot
+Disallow: /
+User-agent: Google-Extended
+Disallow: /
+User-agent: Applebot-Extended
+Disallow: /
+User-agent: Bytespider
+Disallow: /
+User-agent: CCBot
+Disallow: /
+
+Sitemap: https://yurich-citycode.github.io/YuRichHUB/sitemap.xml
