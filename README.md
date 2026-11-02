@@ -18,9 +18,22 @@
 ## Картинки
 
 - `indexpreview.jpg`, `cfapreview.jpg`, `coursepreview.jpg`, `glossarypreview.jpg` — превью страниц для соцсетей
-- `comics1–6.jpg` — лента комиксов на главной
+- `comics1–6.webp` — лента комиксов в глоссарии (слоты `comics7–13.jpg` — заглушки, файлы можно добавить позже: появятся сами)
 - `ai-screen.jpg`, `yurichhub.jpg`, `rwa-asset-coffee.jpg`, `keychain.webp`, `hermes.jpg`, `nebank.png` — картинки блоков главной
 - `CityCode.png` — логотип City Code
+- `favicon.svg`, `favicon.ico`, `apple-touch-icon.png` — иконки сайта
+
+## Переезд на свой домен
+
+Сейчас основной адрес — `https://yurich-citycode.github.io/YuRichHUB/`. Когда подключите домен, замените этот адрес везде поиском по `yurich-citycode.github.io`:
+
+- `sitemap.xml` — 6 ссылок
+- `robots.txt` — строка `Sitemap:`
+- `llms.txt` — 5 ссылок
+- `*.html` — `rel="canonical"`, `og:url`, `twitter:image` и JSON-LD (`url`, `logo`, `item`)
+- `README.md` — ссылка в начале файла
+
+Затем добавьте в корень файл `CNAME` с именем домена и укажите DNS на GitHub Pages.
 
 ## Стиль
 

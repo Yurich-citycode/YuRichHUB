@@ -2,8 +2,8 @@
 
 YuRichHub — три двери в Севастополь: Sevastopol AI (городской бот по местам), City Code (закрытый круг) и YuRich RWA (токенизация реальных активов).
 
-- [https://yurich-citycode.github.io/YuRichHUB/)]: Главная — три направления, манифест «Открыть. Войти. Владеть.»
-- [https://yurich-citycode.github.io/YuRichHUB/course.html)](https://yurich-citycode.github.io/YuRichHUB/course.html): Курс о токенизации реальных активов (RWA) — 6 модулей
-- [https://yurich-citycode.github.io/YuRichHUB/glossary.html)](https://yurich-citycode.github.io/YuRichHUB/glossary.html): Глоссарий RWA — 76 терминов от ADR до регулирования СНГ и ЦФА
-- [https://yurich-citycode.github.io/YuRichHUB/cfa.html)](https://yurich-citycode.github.io/YuRichHUB/cfa.html): Сборка выпуска ЦФА под площадку — созвон, разбор актива, конструкция, посадка на ОИС
-- [https://yurich-citycode.github.io/YuRichHUB/suggest.html)](https://yurich-citycode.github.io/YuRichHUB/suggest.html): Предложить место в Севастополе для городского бота
+- [https://yurich-citycode.github.io/YuRichHUB/](https://yurich-citycode.github.io/YuRichHUB/): Главная — три направления, манифест «Открыть. Войти. Владеть.»
+- [https://yurich-citycode.github.io/YuRichHUB/course.html](https://yurich-citycode.github.io/YuRichHUB/course.html): Курс о токенизации реальных активов (RWA) — 6 модулей
+- [https://yurich-citycode.github.io/YuRichHUB/glossary.html](https://yurich-citycode.github.io/YuRichHUB/glossary.html): Глоссарий RWA — 76 терминов от ADR до регулирования СНГ и ЦФА
+- [https://yurich-citycode.github.io/YuRichHUB/cfa.html](https://yurich-citycode.github.io/YuRichHUB/cfa.html): Сборка выпуска ЦФА под площадку — созвон, разбор актива, конструкция, посадка на ОИС
+- [https://yurich-citycode.github.io/YuRichHUB/suggest.html](https://yurich-citycode.github.io/YuRichHUB/suggest.html): Предложить место в Севастополе для городского бота

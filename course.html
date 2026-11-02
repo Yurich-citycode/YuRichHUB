@@ -221,12 +221,12 @@
     background-color:var(--cream-line);
     background-size:cover; background-position:center; background-repeat:no-repeat;
   }
-  .modtab:hover .mimg, .modtab.active .mimg{ opacity:1; transform:scale(1); }
+  .modtab.active .mimg{ opacity:1; transform:scale(1); }
   .modtab .mimg::after{
     content:''; position:absolute; inset:0;
     background:linear-gradient(0deg, rgba(24,20,15,.78), rgba(24,20,15,.15) 55%);
   }
-  .modtab:hover, .modtab.active{ width:150px; }
+  .modtab.active{ width:150px; }
   .modrow.all-open .modtab{ width:150px; }
   .modtab .inner{
     position:relative; z-index:2;
@@ -234,7 +234,7 @@
     display:flex; align-items:center; gap:16px; margin:0 auto; font-weight:700;
     color:var(--black); transition:color .25s;
   }
-  .modtab:hover .inner, .modtab.active .inner{ color:var(--cream); }
+  .modtab.active .inner{ color:var(--cream); }
   .modtab .num{ font-size:12px; opacity:.5; }
   .modtab .mtitle{ font-size:14px; letter-spacing:.01em; }
   .modtab.big{ background:var(--black); width:150px; cursor:default; }
@@ -244,13 +244,20 @@
     font-size:10px; letter-spacing:.1em; color:rgba(241,233,216,.85);
     opacity:0; transition:opacity .3s;
   }
-  .modtab:hover .phlabel, .modtab.active .phlabel{ opacity:1; }
+  .modtab.active .phlabel{ opacity:1; }
   .modtab.m1 .mimg{ background-image:url('module1.jpg'); }
   .modtab.m2 .mimg{ background-image:url('module2.jpg'); }
   .modtab.m3 .mimg{ background-image:url('module3.jpg'); }
   .modtab.m4 .mimg{ background-image:url('module4.jpg'); }
   .modtab.m5 .mimg{ background-image:url('module5.jpg'); }
   .modtab.m6 .mimg{ background-image:url('module6.jpg'); }
+  .modtab.has-img .phlabel{ display:none; }
+  @media (hover:hover){
+    .modtab:hover .mimg{ opacity:1; transform:scale(1); }
+    .modtab:hover{ width:150px; }
+    .modtab:hover .inner{ color:var(--cream); }
+    .modtab:hover .phlabel{ opacity:1; }
+  }
 
   .modcounter{ display:flex; align-items:center; gap:16px; margin-top:24px; font-size:12px; font-weight:700; flex-wrap:wrap; }
   .arrowbtn{
@@ -308,6 +315,7 @@
     .navlinks a{ padding:12px 18px; opacity:1; border-bottom:0; }
     .navlinks a:hover{ background:var(--black); color:var(--cream); }
     .modtab, .modtab.big{ height:260px; }
+    .qbody{ padding:22px 18px; }
   }
 
   @media (prefers-reduced-motion:reduce){
@@ -322,6 +330,10 @@
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@graph": [{"@type": "Course", "name": "Курс о токенизации реальных активов (RWA)", "description": "Курс о токенизации реальных активов: шесть модулей от матчасти до карты рынка RWA. Без трейдинга и сигналов — механика, регулирование, риски.", "numberOfLectures": 6, "inLanguage": "ru", "provider": {"@type": "Organization", "name": "YuRich", "url": "https://yurich-citycode.github.io/YuRichHUB/"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://yurich-citycode.github.io/YuRichHUB/"}, {"@type": "ListItem", "position": 2, "name": "Курс RWA", "item": "https://yurich-citycode.github.io/YuRichHUB/course.html"}]}]}
 </script>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<noscript><style>html{opacity:1 !important;transition:none}</style></noscript>
 </head>
 <body>
 
@@ -670,6 +682,23 @@
 
   qdots.innerHTML = questions.map(function(){ return '<span></span>'; }).join('');
   renderQuestion();
+})();
+</script>
+<script>
+(function(){
+  'use strict';
+  window.addEventListener('load', function(){
+    for(var n = 1; n <= 6; n++){
+      (function(n){
+        var im = new Image();
+        im.onload = function(){
+          var t = document.querySelector('.modtab.m' + n);
+          if(t) t.classList.add('has-img');
+        };
+        im.src = 'module' + n + '.jpg';
+      })(n);
+    }
+  });
 })();
 </script>
 </body>
